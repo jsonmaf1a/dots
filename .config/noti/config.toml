@@ -1,10 +1,10 @@
 [general]
-font = [ "JetBrainsMono Nerd Font", 20 ]
+font = [ "JetBrainsMono Nerd Font", 16 ]
 anchor = "bottom right"
 offset = [10, 20]
-width = 300
-height = 80
-gap = 5
+width = 250
+height = 60
+gap = 8
 sorting = "default"
 
 [display]
@@ -13,12 +13,12 @@ padding = { horizontal = 32 }
 timeout = 3000
 
 [display.image]
-max_size = 48
+max_size = 32
 margin = 0
 
 [display.border]
 size = 2
-color = "#9F99CC"
+color = "#6B729A"
 radius = 50
 
 [display.colors]
@@ -28,7 +28,7 @@ critical = { background = "#f38ba8", foreground = "#151523" }
 
 [display.text]
 justification = "left"
-margin = { left = 20 }
+margin = { left = 15 }
 wrap = false
 ellipsize_at = "middle" 
 

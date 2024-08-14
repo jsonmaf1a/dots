@@ -8,6 +8,6 @@ kb switch
 
 value=$(hyprctl devices | grep -i $keyboard -A 2 | tail -n1 | cut -f3,4 -d' ')
 
-dunstify -a "kb" -u low -i $ICONS/kb.svg -t 2000 -r 9995 "$value"
+noti send -a "kb" -u low -i $ICONS/kb.svg -r 9995 "$value"
 
 

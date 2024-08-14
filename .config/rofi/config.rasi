@@ -5,7 +5,7 @@ configuration {
   display-drun: "";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  matching: "fuzzy";
+  matching: "normal";
   font: "JetBrains Mono Medium 10";
   modi: "window,run,drun";
   show-icons: true;
@@ -20,7 +20,7 @@ configuration {
 }
 
 window {
-  width: 35%;
+  width: 25%;
   background-color: @bg;
   border-radius: 10px;
   border-color: @bg-alt;
@@ -36,7 +36,7 @@ element {
 
 element selected {
   text-color: @fg;
-  background-color: @bg-selected;
+  background-color: @bg-alt;
   border-color: @bg;
   border-radius: 2px;
 }
@@ -55,31 +55,30 @@ element-icon {
 
 entry {
   padding: 12;
-  background-color: @bg-alt;
+  background-color: #181825;
   text-color: @fg;
 }
 
 inputbar {
   children: [prompt, entry];
-  background-color: @bg;
-  margin: 0 0 20 0;
+  background-color: transparent;
 }
 
 listview {
   background-color: @bg;
-  columns: 3;
+  columns: 1;
   lines: 5;
   spacing: 5;
 }
 
 mainbox {
   children: [inputbar, listview];
-  background-color: @bg;
+  background-color: transparent;
 }
 
 prompt {
+  background-color: #181825;
   enabled: true;
   padding: 12 0 0 12;
-  background-color: @bg-alt;
   text-color: @fg;
 }

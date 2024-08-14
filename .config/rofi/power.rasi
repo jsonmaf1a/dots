@@ -4,4 +4,5 @@ inputbar {
 
 listview {
 	lines: 6;
+  columns: 1;
 }

@@ -8,7 +8,7 @@ up)
   echo percentage
 	rounded_percentage=$(echo "($percentage + 5) / 10 * 10" | bc)
   echo rounded_percentage
-	dunstify -a "brightness" -u low -i $ICONS/brightness.svg -r 9997 "Brightness: $rounded_percentage%"
+	noti send -a "brightness" -u low -i $ICONS/brightness.svg -r 9997 "Brightness: $rounded_percentage%"
 	;;
 down)
 	brightnessctl s 10%-
@@ -17,6 +17,6 @@ down)
   echo percentage
 	rounded_percentage=$(echo "($percentage + 5) / 10 * 10" | bc)
   echo rounded_percentage
-	dunstify -a "brightness" -u low -i $ICONS/brightness.svg -r 9997 -h "int:value:$rounded_percentage" "Brightness: $rounded_percentage%"
+	noti send -a "brightness" -u low -i $ICONS/brightness.svg -r 9997 "Brightness: $rounded_percentage%"
 	;;
 esac

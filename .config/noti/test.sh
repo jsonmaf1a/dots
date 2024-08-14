@@ -1,0 +1,10 @@
+#!/bin/bash
+notify-send -u critical "Test message: critical test 1" "body"
+notify-send -u normal "Test message: normal test 2" "body"
+notify-send -u low "Test message: low test 3" "body"
+notify-send -u critical "Test message: critical test 1" "body"
+notify-send -u normal "Test message: normal test 2" "body"
+notify-send -u low "Test message: low test 3" "body"
+notify-send -u critical "Test message: critical test 1" "body"
+notify-send -u normal "Test message: normal test 2" "body"
+notify-send -u low "Test message: low test 3" "body"
