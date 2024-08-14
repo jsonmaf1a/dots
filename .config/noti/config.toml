@@ -10,7 +10,7 @@ sorting = "default"
 [display]
 markup = true
 padding = { horizontal = 32 }
-timeout = 3000
+timeout = 3000 
 
 [display.image]
 max_size = 32

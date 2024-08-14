@@ -23,8 +23,8 @@ window {
   width: 25%;
   background-color: @bg;
   border-radius: 10px;
-  border-color: @bg-alt;
-  border: 1px;
+  border-color: #6B729A;
+  border: 2px;
   padding: 0 0 10 0;
 }
 
