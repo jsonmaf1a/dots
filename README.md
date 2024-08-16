@@ -18,7 +18,7 @@ cd ~/dots
 ```
 
 
-- Make the setup.sh script executable:
+- Make the `setup.sh` script executable:
 ```sh
 chmod +x setup.sh
 ```
