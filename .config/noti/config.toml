@@ -10,7 +10,7 @@ sorting = "default"
 [display]
 markup = true
 padding = { horizontal = 20 }
-timeout = 3000
+timeout = 5000
 
 [display.image]
 max_size = 38
@@ -18,14 +18,14 @@ margin = 0
 rounding = 0
 
 [display.border]
-size = 1
-color = "#ABB2BF20"
+size = 2
+color = "#ABB2BF30"
 radius = 10
 
 [display.colors]
-low = { background = "#282C33", foreground = "#ABB2BF" }
-normal = { background = "#282C33", foreground = "#ABB2BF" }
-critical = { background = "#282C33", foreground = "#E06B74" }
+low = { background = "#1D1E21", foreground = "#ABB2BF" }
+normal = { background = "#1D1E21", foreground = "#ABB2BF" }
+critical = { background = "#1D1E21", foreground = "#E06B74" }
 
 [display.text]
 justification = "left"

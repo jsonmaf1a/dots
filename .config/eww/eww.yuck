@@ -10,7 +10,7 @@
   :geometry (geometry :x "0%"
                       :y "0%"
                       :width "100%"
-                      :height "20px"
+                      :height "2px"
                       :anchor "top center")
                       (bar))
 

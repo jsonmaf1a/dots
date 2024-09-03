@@ -12,7 +12,7 @@
   ))
 
 (defwidget center [] 
-  "")
+  (time))
   ;; (box :class "center" :orientation "h" :space-evenly false :halign "center"
   ;;   (eventbox :onhover "${EWW_CMD} update dock=true"
   ;;             :onhoverlost "${EWW_CMD} update dock=false"
@@ -24,8 +24,6 @@
 (defwidget right []
   (box :class "right" :orientation "h" :space-evenly false :spacing 8 :halign "end"
     (tray)
-    (separator)
-    (time)
     ))
 
 (defwidget bar []

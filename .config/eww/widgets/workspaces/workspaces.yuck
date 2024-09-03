@@ -8,8 +8,8 @@
 (defwidget icon [is-active]
   (image :path {is-active ? "${EWW_CONFIG_DIR}/widgets/workspaces/icons/active.svg" : "${EWW_CONFIG_DIR}/widgets/workspaces/icons/inactive.svg"} 
          :class {is-active ? "image active" : "image"} 
-         :image-width  {is-active ? 32 : 8}
-         :image-height {is-active ? 32 : 8}))
+         :image-width  8
+         :image-height 8))
 
 (defwidget workspaces []
   (eventbox :cursor "pointer" :class "eventbox"

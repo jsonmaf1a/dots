@@ -21,12 +21,12 @@ end
 
 local colorscheme = get_theme(utils.get_appearance())
 
-config.colors = {}       --  NOTE: dont touch this, use utils.merge_tables
-config.window_frame = {} --  NOTE: dont touch this, use utils.merge_tables
+config.colors = {}       --  WARNING: dont touch this, use utils.merge_tables
+config.window_frame = {} --  WARNING: dont touch this, use utils.merge_tables
 
 config.color_scheme = colorscheme.theme
 config.xcursor_theme = colorscheme.cursor
-config.font = wezterm.font("JetBrainsMono Nerd Font") -- => -> >= 1 2 3 4 5 6 7 8 9 0
+config.font = wezterm.font("JetBrainsMono Nerd Font") --  TEST: => -> >= 1 2 3 4 5 6 7 8 9 0
 config.font_size = 14
 config.check_for_updates = false
 config.enable_wayland = false

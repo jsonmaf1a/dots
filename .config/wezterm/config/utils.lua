@@ -52,7 +52,6 @@ M.merge_tables = function(t1, t2)
   return t1
 end
 
-
 M.get_appearance = function()
   if wezterm.gui then
     return wezterm.gui.get_appearance()
