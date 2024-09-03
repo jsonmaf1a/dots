@@ -36,6 +36,9 @@ alias pp='ping 8.8.8.8'
 alias mpvp="mpvpaper '*'"
 alias pick="hyprpicker -a -f "
 alias sr='systemctl soft-reboot'
+alias weather='curl "wttr.in/?tqp0"'
+alias nvchad="NVIM_APPNAME=nvchad nvim"
+alias astronvim="NVIM_APPNAME=astronvim nvim"
 alias xgnome="XINITRC=~/xsessions/gnome startx"
 alias xplasma="XINITRC=~/xsessions/plasma startx"
 

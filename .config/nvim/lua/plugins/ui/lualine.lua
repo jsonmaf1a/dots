@@ -18,7 +18,7 @@ local conditions = {
     return gitdir and #gitdir > 0 and #gitdir < #filepath
   end,
   lsp_not_empty = function()
-    local clients = vim.lsp.get_active_clients()
+    local clients = vim.lsp.get_clients()
     if next(clients) == nil then
       return false
     end

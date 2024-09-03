@@ -3,6 +3,7 @@ return {
     "catppuccin/nvim",
     dependencies = "f-person/auto-dark-mode.nvim",
     priority = 1000,
+    lazy = false,
     opts = {
       flavor = "mocha",
       background = {
@@ -58,20 +59,23 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      local adm = require("auto-dark-mode")
-      adm.setup({
-        update_interval = 1000,
-        set_dark_mode = function()
-          vim.api.nvim_set_option_value("background", "dark", {})
-          vim.cmd("colorscheme catppuccin-mocha")
-          vim.cmd("source ~/.config/nvim/lua/ui/highlights.lua")
-        end,
-        set_light_mode = function()
-          vim.api.nvim_set_option_value("background", "light", {})
-          vim.cmd("colorscheme catppuccin-latte")
-        end,
-
-      })
     end,
   },
+  {
+    'navarasu/onedark.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('onedark').load()
+    end
+  },
+  {
+    'projekt0n/github-nvim-theme',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('github-theme').setup({})
+    end,
+  },
+  { "Mofiqul/dracula.nvim" }
 }

@@ -1,2 +1,2 @@
-@import "./theme/dark.rasi"
+@import "./theme/onedark/dark.rasi"
 

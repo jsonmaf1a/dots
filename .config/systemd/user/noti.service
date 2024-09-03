@@ -1,0 +1,10 @@
+[Unit]
+Description=Noti
+PartOf=graphical-session.target
+
+[Service]
+Type=dbus
+BusName=org.freedesktop.Notifications
+Environment=XDG_CONFIG_HOME=/home/hapka/.config NOTI_LOG=debug
+ExecStart=%h/.cargo/bin/noti run
+Restart=always

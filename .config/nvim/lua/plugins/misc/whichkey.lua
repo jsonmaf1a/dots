@@ -7,7 +7,7 @@ return {
   end,
   opts = {
     preset = "modern",
-    plugins = { spelling = true, marks = false, registers = false },
+    plugins = { spelling = true, marks = false, registers = true },
     -- motions = { count = false, }, icons = {
     icons = {
       breadcrumb = ">",

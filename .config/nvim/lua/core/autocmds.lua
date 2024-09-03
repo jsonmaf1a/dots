@@ -1,5 +1,26 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+-- Set colorscheme
+autocmd("VimEnter", {
+  group = vim.api.nvim_create_augroup("Colorscheme", {}),
+  callback = function()
+    local adm = require("auto-dark-mode")
+    adm.setup({
+      update_interval = 1000,
+      set_dark_mode = function()
+        vim.api.nvim_set_option_value("background", "dark", {})
+        vim.cmd("colorscheme " .. CONFIG.colorscheme.dark)
+        vim.cmd("source ~/.config/nvim/lua/ui/highlights.lua")
+      end,
+      set_light_mode = function()
+        vim.api.nvim_set_option_value("background", "light", {})
+        vim.cmd("colorscheme " .. CONFIG.colorscheme.light)
+      end,
+
+    })
+  end
+})
+
 -- Disable ufo
 autocmd("FileType", {
   pattern = { "NvimTree", "neo-tree", "aerial" },

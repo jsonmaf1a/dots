@@ -5,8 +5,12 @@ CONFIG = {
   cursorline = false,
   global_statusline = true,
   virtual_text = true,
-  relativenumber = false,
-  hide_cmdline = true
+  relative_number = false,
+  hide_cmdline = true,
+  colorscheme = {
+    dark = "onedark",
+    light = "catppuccin-latte",
+  }
 }
 
 require("core")

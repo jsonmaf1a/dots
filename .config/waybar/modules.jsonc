@@ -1,9 +1,10 @@
 {
   "hyprland/language": {
     "format": "{}",
+    "format-alt": "{}",
     "format-en": "EN",
     "format-ru": "RU",
-    "format-uk": "UA",
+    "format-uk": "UA"
   },
   "hyprland/workspaces": {
     "all-outputs": true,
@@ -11,19 +12,20 @@
     // "show-special": true,
     "on-click": "activate",
     "format": "{icon}",
+    "format-alt": "{icon}",
     "on-hover": false,
     "format-icons": {
       "urgent": "󰑊",
       "active": "󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊",
       // "active": "",
-      "default": "󰑊",
+      "default": "󰑊"
     },
     "persistent-workspaces": {
       "1": [],
       "2": [],
-      "3": [],
+      "3": []
     },
-    "tooltip": false,
+    "tooltip": false
   },
   "hyprland/window": {
     "format": "{}",
@@ -37,6 +39,7 @@
       "critical": 10
     },
     "format": "{icon}",
+    "format-alt": "{icon}",
     "format-charging": "{icon}",
     "format-full": " ",
     "format-icons": [
@@ -44,7 +47,7 @@
       " ",
       " ",
       " ",
-      " ",
+      " "
     ],
     // "format-icons": [
     // 󱐋
@@ -61,9 +64,11 @@
     "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
   },
   "clock": {
-    // "format": "<b>{:%a, %d %b %I:%M %p}</b>",
-    "format": "<b>{:%H:%M}</b>",
-    "format-alt": "<b>{:%I:%M %p}</b>",
+    "format": "<b>{:%a, %b %d :: %I:%M %p}</b>",
+    "format-alt": "<b>{:%H:%M}</b>"
+  },
+  "custom/separator": {
+    "format": " "
   },
   "network": {
     "interface": "wlan0",

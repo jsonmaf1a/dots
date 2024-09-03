@@ -1,0 +1,10 @@
+[general]
+fullscreen = true
+early-exit = true
+initial-tool = "blur"
+copy-command = "wl-copy"
+save-after-copy = false
+
+[font]
+family = "JetBrainsMono Nerd Font"
+

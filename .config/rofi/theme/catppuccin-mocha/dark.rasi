@@ -1,10 +1,13 @@
 * {
   bg: #1E1E2E;
   bg-alt: #11111b30;
+  bg-darker: #181825;
   bg-selected: #29293d;
 
   fg: #ccc9c9;
   fg-alt: #a3a3a3;
+
+  accent: #6B729A;
 
   border: 0;
   margin: 0;

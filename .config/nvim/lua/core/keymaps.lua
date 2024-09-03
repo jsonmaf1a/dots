@@ -10,7 +10,6 @@ local splits = require("smart-splits")
 local ls = require("luasnip")
 local conform = require("conform")
 local lint = require("lint")
-local lsp_utils = require("utils.lsp")
 
 -- LSP
 set_keymap("n", "gR", ":lua vim.lsp.buf.references({ includeDeclaration = false })", "References")

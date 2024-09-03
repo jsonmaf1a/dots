@@ -1,4 +1,4 @@
-@import "theme/dark.css";
+@import "theme/onedark/dark.css";
 
 * {
   padding: 0;
@@ -66,13 +66,13 @@ tooltip label {
 }
 
 #tray {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 #info {
   background: @background;
   border-radius: 10px 0px 0px 10px;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 #clock,
@@ -85,11 +85,11 @@ tooltip label {
 }
 
 #language {
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 #network {
-  margin-right: 3px;
+  margin-right: 5px;
 }
 
 #clock {
@@ -119,6 +119,12 @@ tooltip label {
   animation-timing-function: steps(15);
   animation-iteration-count: infinite;
   animation-direction: alternate;
+}
+
+#custom-separator {
+  margin: 0px 1px;
+  background: none;
+  color: alpha(@primary, 0.5);
 }
 
 /* Keyframes */

@@ -6,6 +6,8 @@
   fg: #151523;
   fg-alt: #1e1e2e;
 
+  accent: #6B729A;
+
   border: 0;
   margin: 0;
   padding: 0;

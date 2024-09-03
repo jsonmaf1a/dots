@@ -34,23 +34,24 @@ time=$(date '+%N')
     cp ~/.zshrc ~/dots-backup-$time/
     cp ~/.zshenv ~/dots-backup-$time/
     cp -r ~/.config/ ~/dots-backup-$time/
-    cp -r ~/.mozilla/ ~/dots-backup-$time/
+    cp -r ~/.mozilla/firefox/ ~/dots-backup-$time/
 ) &
 backup_pid=$!
 
 spinner $backup_pid
 
-ln -sf $(realpath .zshrc) ~/.zshrc
-ln -sf $(realpath .zshenv) ~/.zshenv
-ln -sf $(realpath ./.config/eww) ~/.config/eww
-ln -sf $(realpath ./.config/helix) ~/.config/helix
-ln -sf $(realpath ./.config/hypr) ~/.config/hypr
-ln -sf $(realpath ./.config/noti) ~/.config/noti
-ln -sf $(realpath ./.config/nvim) ~/.config/nvim
-ln -sf $(realpath ./.config/rofi) ~/.config/rofi
-ln -sf $(realpath ./.config/waybar) ~/.config/waybar
-ln -sf $(realpath ./.config/wezterm) ~/.config/wezterm
-ln -sf $(realpath ./firefox/) $FIREFOX_PROFILE_PATH/chrome
+ln -s $(realpath .zshrc) ~/.zshrc
+ln -s $(realpath .zshenv) ~/.zshenv
+ln -s $(realpath ./.config/eww) ~/.config/eww
+ln -s $(realpath ./.config/helix) ~/.config/helix
+ln -s $(realpath ./.config/hypr) ~/.config/hypr
+ln -s $(realpath ./.config/noti) ~/.config/noti
+ln -s $(realpath ./.config/nvim) ~/.config/nvim
+ln -s $(realpath ./.config/rofi) ~/.config/rofi
+ln -s $(realpath ./.config/waybar) ~/.config/waybar
+ln -s $(realpath ./.config/wezterm) ~/.config/wezterm
+ln -s $(realpath ./.config/systemd) ~/.config/systemd
+ln -s $(realpath ./firefox/) $FIREFOX_PROFILE_PATH/chrome
 
 echo "Created backup in ~/dots-backup-$time"
 echo "Successful installation"
