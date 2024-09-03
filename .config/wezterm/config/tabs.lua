@@ -2,9 +2,9 @@ local M = {}
 
 local wezterm = require("wezterm")
 local utils = require("config.utils")
-local mode = require("config.colorscheme").theme == "Catppuccin Latte" and "light" or "dark"
+local mode = utils.get_appearance():find "Dark" and "dark" or "light"
 
-local function get_color(dark, light)
+local function set_color(dark, light)
   if mode == "dark" then
     return dark
   else
@@ -13,11 +13,11 @@ local function get_color(dark, light)
 end
 
 local colors = {
-  -- bg = get_color("#151523", "#DBD5D0"),
-  -- active = get_color("#232039", "#E9E5E2"),
-  -- inactive = get_color("#151526", "#D1CFCE"),
-  -- hover = get_color("#202030", "#cdcdcd"),
-  -- fg = get_color("#99AEB3", "#898686"),
+  -- bg = set_color("#151523", "#DBD5D0"),
+  -- active = set_color("#232039", "#E9E5E2"),
+  -- inactive = set_color("#151526", "#D1CFCE"),
+  -- hover = set_color("#202030", "#cdcdcd"),
+  -- fg = set_color("#99AEB3", "#898686"),
 
   bg = "#1d1e21",
   active = "#282C33",
