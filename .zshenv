@@ -20,5 +20,5 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export ADB_TRACE=all
 
-export SCRIPTS=$HOME/dots/assets/scripts
-export ICONS=$HOME/dots/assets/icons
+export SCRIPTS=$HOME/.local/bin/
+export ICONS=$HOME/.local/share/icons/dots/

@@ -7,11 +7,8 @@
 ## Installation
 - Clone the repository
 ```sh
-git clone git@github.com:kkk-petrov/dots.git ~/dots
+git clone git@github.com:kkk-petrov/dots.git
 ```
-
->Note: If you clone the repository into a different directory, you need to update the SCRIPTS and ICONS variables in your .zshenv file to reflect the new path.
-
 
 - Navigate to the cloned directory:
 ```sh

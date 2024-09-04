@@ -33,6 +33,7 @@ time=$(date '+%N')
     mkdir ~/dots-backup-$time/
     cp ~/.zshrc ~/dots-backup-$time/
     cp ~/.zshenv ~/dots-backup-$time/
+    cp -r ~/.local/ ~/dots-backup-$time/
     cp -r ~/.config/ ~/dots-backup-$time/
     cp -r ~/.mozilla/firefox/ ~/dots-backup-$time/
 ) &
@@ -51,6 +52,8 @@ ln -s $(realpath ./.config/rofi) ~/.config/rofi
 ln -s $(realpath ./.config/waybar) ~/.config/waybar
 ln -s $(realpath ./.config/wezterm) ~/.config/wezterm
 ln -s $(realpath ./.config/systemd) ~/.config/systemd
+ln -s $(realpath ./assets/icons) ~/.local/share/icons/dots
+ln -s $(realpath ./assets/scripts) ~/.local/bin
 ln -s $(realpath ./firefox/) $FIREFOX_PROFILE_PATH/chrome
 
 echo "Created backup in ~/dots-backup-$time"
