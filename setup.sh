@@ -41,7 +41,6 @@ backup_pid=$!
 
 spinner $backup_pid
 
-mkdir -p ~/.config/eww ~/.config/helix ~/.config/hypr ~/.config/noti ~/.config/nvim ~/.config/rofi ~/.config/waybar ~/.config/wezterm ~/.config/systemd ~/.local/icons/dots/  ~/.local/bin $FIREFOX_PROFILE_PATH/chrome 
 ln -s $(realpath .zshrc) ~/.zshrc
 ln -s $(realpath .zshenv) ~/.zshenv
 ln -s $(realpath ./.config/eww) ~/.config/eww
