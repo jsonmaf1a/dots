@@ -28,19 +28,20 @@ if [ -d "$PROFILE_DIR" ]; then
   fi
 fi
 
-time=$(date '+%N')
+timestamp=$(date '+%N')
 (
-    mkdir ~/dots-backup-$time/
-    cp ~/.zshrc ~/dots-backup-$time/
-    cp ~/.zshenv ~/dots-backup-$time/
-    cp -r ~/.local/ ~/dots-backup-$time/
-    cp -r ~/.config/ ~/dots-backup-$time/
-    cp -r ~/.mozilla/firefox/ ~/dots-backup-$time/
+    mkdir ~/dots-backup-$timestamp/
+    cp ~/.zshrc ~/dots-backup-$timestamp/
+    cp ~/.zshenv ~/dots-backup-$timestamp/
+    cp -r ~/.local/ ~/dots-backup-$timestamp/
+    cp -r ~/.config/ ~/dots-backup-$timestamp/
+    cp -r ~/.mozilla/firefox/ ~/dots-backup-$timestamp/
 ) &
 backup_pid=$!
 
 spinner $backup_pid
 
+mkdir -p ~/.config/eww ~/.config/helix ~/.config/hypr ~/.config/noti ~/.config/nvim ~/.config/rofi ~/.config/waybar ~/.config/wezterm ~/.config/systemd ~/.local/icons/dots/  ~/.local/bin $FIREFOX_PROFILE_PATH/chrome 
 ln -s $(realpath .zshrc) ~/.zshrc
 ln -s $(realpath .zshenv) ~/.zshenv
 ln -s $(realpath ./.config/eww) ~/.config/eww
@@ -56,5 +57,5 @@ ln -s $(realpath ./assets/icons) ~/.local/share/icons/dots
 ln -s $(realpath ./assets/scripts) ~/.local/bin
 ln -s $(realpath ./firefox/) $FIREFOX_PROFILE_PATH/chrome
 
-echo "Created backup in ~/dots-backup-$time"
+echo "Created backup in ~/dots-backup-$timestamp"
 echo "Successful installation"
