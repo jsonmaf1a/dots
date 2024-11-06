@@ -27,6 +27,7 @@ alias pas='paru -Ss'                            # search
 alias pac='paru -Scc'                           # clean cache   
 
 alias cd='z'
+alias :q='exit'
 alias ls='eza'
 alias hx='helix'
 alias rm='trash'

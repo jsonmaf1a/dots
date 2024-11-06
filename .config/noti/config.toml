@@ -1,16 +1,17 @@
 [general]
 font = [ "JetBrainsMono Nerd Font", 18 ]
-anchor = "bottom"
-offset = [0, 20]
-width = 300
+anchor = "top"
+offset = [10, 15]
+width = 350
 height = 100
 gap = 8
 sorting = "default"
+sound = "/home/hapka/Documents/kits/!Ghosty - floatszn/!fx/!Ghosty - ddt.wav"
 
 [display]
 markup = true
 padding = { horizontal = 20 }
-timeout = 5000
+timeout = 3000
 
 [display.image]
 max_size = 38

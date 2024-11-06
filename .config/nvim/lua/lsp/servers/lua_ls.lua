@@ -3,15 +3,15 @@ local M = {}
 M.settings = {
 	Lua = {
 		completion = {
-			callSnippet = "Replace",
+			callSnippet = "Both",
 		},
 		diagnostics = {
 			globals = { "vim" },
 		},
 		workspace = {
 			library = {
-				[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-				[vim.fn.stdpath("config") .. "/lua"] = true,
+				vim.fn.expand("$VIMRUNTIME/lua"),
+				vim.fn.stdpath("config") .. "/lua",
 			},
 		},
 	},

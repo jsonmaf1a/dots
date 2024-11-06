@@ -1,4 +1,4 @@
 return {
-	"stevearc/aerial.nvim",
-	opts = {},
+	-- "stevearc/aerial.nvim",
+	-- opts = {},
 }

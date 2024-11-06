@@ -11,7 +11,7 @@ return {
 			local treesitter = require("nvim-treesitter.configs")
 			local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
-			treesitter.setup({ -- enable syntax highlighting
+			treesitter.setup({
 				highlight = {
 					enable = true,
 				},
@@ -38,6 +38,7 @@ return {
 					"typescript",
 					"tsx",
 					"yaml",
+					"toml",
 					"html",
 					"css",
 					"prisma",
@@ -54,6 +55,7 @@ return {
 					"go",
 					"rust",
 					"cpp",
+					"latex",
 				},
 			})
 

@@ -1,20 +1,21 @@
 local M = {}
 
 M.colors = {
-	bg = "#1e1e2e",
-	fg = "#B4BCD8",
-	gray = "#9399b2",
+	bg = "#282C33",
+	fg = "#ABB2BF",
+	gray = "#ABB2BF",
 	white = "#ffffff",
-	yellow = "#F9E2AF",
+	yellow = "#E5C07A",
 	orange = "#FAC29A",
-	red = "#F28FAD",
-	green = "#A6E3A1",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
+	red = "#E06B74",
+	green = "#98C379",
+	-- accent = "#a9a1e1",
+	accent = "#C779DE",
+	magenta = "#C778DD",
 	purple_dark = "#514263",
-	blue = "#89B4FA",
-	ltblue = "#B7BDF8",
-	cyan = "#89DCEB",
+	blue = "#528BFF",
+	ltblue = "#62B0F0",
+	cyan = "#55B6C2",
 }
 
 M.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
