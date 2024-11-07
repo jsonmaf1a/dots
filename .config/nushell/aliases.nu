@@ -6,7 +6,7 @@ alias pi = sudo pacman -Si                      # info
 alias plo = sudo pacman -Qdt                    # list orphans  
 alias pc = sudo pacman -Scc                     # clean cache   
 alias plf = sudo pacman -Ql                     # list files    
-# alias pro = sudo pacman -Rns $(pacman -Qtdq)    # remove orphans
+alias pro = sudo pacman -Rns (pacman -Qtdq)    # remove orphans
 
 alias pa = paru -S                              # install       
 alias par = paru -Rs                            # remove        
@@ -18,6 +18,7 @@ alias pac = paru -Scc                           # clean cache
 alias cd = z
 alias hx = helix
 alias rm = trash
+alias md = mkdir
 alias l = ls -la
 alias cb = wl-copy
 alias gc = git clone

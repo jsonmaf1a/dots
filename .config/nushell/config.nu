@@ -90,14 +90,16 @@ $env.config = {
     }
 
     edit_mode: vi # emacs, vi
-
 }
 
 source ./keybindings.nu
 source ./theme.nu
 
+source ./aliases.nu
+
+source ./hooks.nu
+
 source ~/.cache/zoxide.nu 
 source ~/.cache/carapace.nu
-source ($nu.default-config-dir | path join 'aliases.nu')
 
 use ~/.cache/starship.nu 
