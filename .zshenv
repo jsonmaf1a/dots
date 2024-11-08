@@ -20,6 +20,7 @@ export STARSHIP_CONFIG=~/.config/starship/starship.toml
 export SSH_AUTH_SOCK=$XDG_RUNTIME_DIR/ssh-agent.socket
 export ADB_TRACE=all
 export QML_XHR_ALLOW_FILE_READ=1
+export NVM_DIR="$HOME/.nvm"
 
 export SCRIPTS=$HOME/.local/bin/
 export ICONS=$HOME/.local/share/icons/dots/

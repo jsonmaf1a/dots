@@ -49,4 +49,6 @@ eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 bindkey -v
 bindkey '^ ' autosuggest-accept # Autocomplete on CTRL + SPACE
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 afetch

@@ -1,27 +1,27 @@
-local wezterm     = require("wezterm")
-local utils       = require("config.utils")
-local tabs        = require("config.tabs")
+local wezterm = require("wezterm")
+local utils = require("config.utils")
+local tabs = require("config.tabs")
 local keybindings = require("config.keybindings")
 
-local config      = wezterm.config_builder()
+local config = wezterm.config_builder()
 
 local function get_theme(appearance)
-  if appearance:find 'Dark' then
-    return {
-      theme = 'OneDark (base16)',
-      cursor = 'Bibata-Modern-Classic'
-    }
-  else
-    return {
-      theme = 'Catppuccin Latte',
-      cursor = 'Bibata-Modern-Ice'
-    }
-  end
+	if appearance:find("Dark") then
+		return {
+			theme = "OneDark (base16)",
+			cursor = "Bibata-Modern-Classic",
+		}
+	else
+		return {
+			theme = "Catppuccin Latte",
+			cursor = "Bibata-Modern-Ice",
+		}
+	end
 end
 
 local colorscheme = get_theme(utils.get_appearance())
 
-config.colors = {}       --  WARNING: dont touch this, use utils.merge_tables
+config.colors = {} --  WARNING: dont touch this, use utils.merge_tables
 config.window_frame = {} --  WARNING: dont touch this, use utils.merge_tables
 
 config.color_scheme = colorscheme.theme
@@ -35,7 +35,7 @@ config.show_new_tab_button_in_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
 config.window_background_opacity = 1
 config.enable_tab_bar = true
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = false
 
 keybindings.apply(config)

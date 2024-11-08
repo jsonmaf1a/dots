@@ -60,6 +60,16 @@ return {
 			},
 			use_libuv_file_watcher = true,
 			hijack_netrw_behavior = "open_current",
+
+			filtered_items = {
+				hide_by_name = {
+					".DS_Store",
+					"thumbs.db",
+					"node_modules",
+					"pnpm-lock.yaml",
+					"package-lock.json",
+				},
+			},
 		},
 		enable_git_status = true,
 		default_component_configs = {

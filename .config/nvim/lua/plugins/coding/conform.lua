@@ -9,7 +9,7 @@ return {
 			svelte = { "prettierd", "prettier" },
 			angular = { "prettierd", "prettier" },
 			css = { "biome" },
-			html = { "biome" },
+			html = { "prettierd", "prettier" },
 			json = { "biome" },
 			lua = { "stylua" },
 			python = { "black", "isort" },

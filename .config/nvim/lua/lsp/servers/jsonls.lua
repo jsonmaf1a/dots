@@ -39,6 +39,14 @@ M.settings = {
 				fileMatch = { "ecosystem.json" },
 				url = "https://json.schemastore.org/pm2-ecosystem.json",
 			},
+			{
+				fileMatch = { "turbo.json" }, -- turbopack
+				url = "https://turbo.build/schema.json",
+			},
+			{
+				fileMatch = { "components.json" }, -- shadcn
+				url = "https://ui.shadcn.com/schema.json",
+			},
 		},
 	},
 }
