@@ -7,7 +7,7 @@ export def main [] {
             mode: [emacs vi_normal vi_insert]
             event: {
                 until: [
-                    { send: menu name: completion_menu }
+                    { send: menu name: ide_completion_menu }
                     { send: menunext }
                     { edit: complete }
                 ]

@@ -60,7 +60,6 @@ path add ($env.HOME | path join "Android" "Sdk" "platform-tools")
 path add $env.PNPM_HOME
 path add ($env.BUN_INSTALL | path join "bin")
 
-
 zoxide init nushell | save -f ~/.cache/zoxide.nu
 starship init nu | save -f ~/.cache/starship.nu
 carapace _carapace nushell | save --force ~/.cache/carapace.nu
