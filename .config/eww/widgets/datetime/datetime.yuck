@@ -1,9 +1,0 @@
-(defpoll time :interval "10s"
-  "date '+%H:%M'")
-
-(defpoll datetime :interval "10s"
-  "date '+%a, %b %d :: %I:%M %p'")
-
-(defwidget time []
-  (box :class "time"
-    (tooltip :class "tooltip" {time} "${datetime}")))
