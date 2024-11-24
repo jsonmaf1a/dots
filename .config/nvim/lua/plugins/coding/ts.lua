@@ -28,6 +28,7 @@ return {
 
 			settings = {
 				separate_diagnostic_server = false,
+				complete_function_calls = false,
 				code_lens = "off",
 				tsserver_file_preferences = {
 					includeInlayParameterNameHints = "all",
@@ -35,7 +36,7 @@ return {
 					quotePreference = "auto",
 				},
 				jsx_close_tag = {
-					enable = true,
+					enable = false,
 					filetypes = { "javascriptreact", "typescriptreact" },
 				},
 			},

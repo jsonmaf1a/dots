@@ -19,7 +19,7 @@ margin = 0
 rounding = 0
 
 [display.border]
-size = 2
+size = 0
 color = "#ABB2BF30"
 radius = 10
 

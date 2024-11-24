@@ -1,25 +1,25 @@
 {
-  "output": "eDP-1",
-  "include": [
-    "~/.config/waybar/modules.jsonc"
-  ],
-  "layer": "top",
-  "position": "top",
-  "margin-top": 0,
-  "margin-bottom": 0,
-  "margin-left": 0,
-  "margin-right": 0,
-  "spacing": 0,
-  "reload_style_on_change": true,
-  "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "tray",
-    "custom/separator",
-    "group/info"
-  ]
+    "output": "eDP-1",
+    "include": [
+        "~/.config/waybar/modules.jsonc"
+    ],
+    "layer": "top",
+    "position": "top",
+    "margin-top": 10,
+    "margin-bottom": 0,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/separator",
+        "group/info"
+    ]
 }

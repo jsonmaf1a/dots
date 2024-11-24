@@ -15,6 +15,11 @@ alias pau = paru -Sua                           # update
 alias pas = paru -Ss                            # search        
 alias pac = paru -Scc                           # clean cache   
 
+alias pnpx = pnpm dlx
+alias pnpi = pnpm add 
+alias pnpg = pnpm add -g
+alias pnpr = pnpm run
+
 alias cd = z
 alias hx = helix
 alias rm = trash

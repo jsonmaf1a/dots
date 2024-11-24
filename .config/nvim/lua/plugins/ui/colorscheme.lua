@@ -67,8 +67,8 @@ return {
 		priority = 1000,
 		opts = {
 			style = "darker",
-			transparent = false,
-			term_colors = false,
+			transparent = true,
+			term_colors = true,
 			ending_tildes = true,
 			code_style = {
 				comments = "italic",

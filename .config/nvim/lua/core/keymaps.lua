@@ -1,4 +1,5 @@
 local set_keymap = require("utils").set_keymap
+local utils = require("utils")
 
 local dap = require("dap")
 local dapui = require("dapui")
@@ -10,6 +11,7 @@ local splits = require("smart-splits")
 local ls = require("luasnip")
 local conform = require("conform")
 local lint = require("lint")
+local hover = require("hover")
 
 -- LSP
 set_keymap("n", "gR", ":lua vim.lsp.buf.references({ includeDeclaration = false })", "References")
@@ -20,7 +22,16 @@ set_keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", "Type definitio
 set_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Actions")
 set_keymap("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
 set_keymap("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic")
-set_keymap("n", "K", vim.lsp.buf.hover, "Show docs")
+-- set_keymap("n", "K", vim.lsp.buf.hover, "Show docs")
+set_keymap("n", "K", hover.hover, "Show docs")
+set_keymap("n", "gK", hover.hover_select, "Docs select source")
+set_keymap("n", "<C-p>", function()
+	hover.hover_switch("previous")
+end, "Docs previous source")
+set_keymap("n", "<C-n>", function()
+	hover.hover_switch("next")
+end, "Docs next source")
+set_keymap("n", "<MouseMove>", hover.hover_mouse, nil)
 set_keymap("n", "<leader>cD", vim.lsp.buf.declaration, "Go to declaration")
 set_keymap("n", "<leader>cr", "<cmd>Telescope lsp_references<CR>", "References")
 set_keymap("n", "<leader>cR", "<cmd>TSToolsFileReferences<CR>", "File references")
@@ -34,6 +45,10 @@ set_keymap("n", "<leader>cq", ":LspRestart<CR>", "Restart LSP")
 set_keymap("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>", "Organize imports")
 set_keymap("n", "<leader>cu", "<cmd>TSToolsRemoveUnusedImports<CR>", "Remove unused imports")
 set_keymap("n", "<leader>cm", "<cmd>TSToolsAddMissingImports<CR>", "Add missing imports")
+set_keymap("n", "<leader>cN", utils.rename_file, "Smart rename")
+
+-- Bind the function to a command or keymap
+vim.api.nvim_set_keymap("n", "<leader>rf", ":lua rename_file()<CR>", { noremap = true, silent = true })
 
 -- Debug
 set_keymap("n", "<leader>dc", dap.continue, "Continue")

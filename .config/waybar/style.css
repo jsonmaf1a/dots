@@ -15,7 +15,8 @@
 }
 
 window#waybar {
-  background: @background;
+    background: @background;
+    border-radius: 5px;
 }
 
 #tray menu,
@@ -34,7 +35,7 @@ tooltip label {
 .modules-left {
   background: transparent;
   color: @primary;
-  padding: 2px 15px 3px 15px;
+  padding: 2px 15px 2px 15px;
 }
 
 #workspaces {

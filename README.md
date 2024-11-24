@@ -2,7 +2,6 @@
 
 ![preview-1](./assets/previews/1.png)
 ![preview-2](./assets/previews/2.png)
-![preview-3](./assets/previews/3.png)
 
 <!-- ## Installation -->
 <!-- - Clone the repository -->

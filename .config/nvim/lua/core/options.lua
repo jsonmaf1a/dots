@@ -45,6 +45,7 @@ local options = {
 	updatetime = 100,
 	timeoutlen = 200,
 	mouse = CONFIG.enable_mouse and "a" or "",
+	mousemoveevent = CONFIG.enable_mouse,
 	langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz",
 }
 
