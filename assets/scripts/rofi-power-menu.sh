@@ -29,15 +29,15 @@ texts[softreboot]="soft reboot"
 texts[shutdown]="shut down"
 
 declare -A icons
-icons[lockscreen]="\Uf033e"
-icons[switchuser]="\Uf0019"
-icons[logout]="\Uf0343"
-icons[suspend]="\Uf04b2"
-icons[hibernate]="\Uf02ca"
-icons[reboot]="\Uf0709"
-icons[softreboot]="\Uf0709"
-icons[shutdown]="\Uf0425"
-icons[cancel]="\Uf0156"
+icons[lockscreen]="&#xf033e;"
+icons[switchuser]="&#xf0019;"
+icons[logout]="&#xf0343;"
+icons[suspend]="&#xf04b2;"
+icons[hibernate]="&#xf02ca;"
+icons[reboot]="&#xf0709;"
+icons[softreboot]="&#xf0709;"
+icons[shutdown]="&#xf0425;"
+icons[cancel]="&#xf0156;"
 
 declare -A actions
 actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID}"
@@ -184,9 +184,9 @@ function write_message {
 	text="<span font_size=\"medium\">$2</span>"
 	if [ "$showsymbols" = "true" ]; then
 		if [ "$showtext" = "true" ]; then
-			echo -n "\u200e$icon \u2068$text\u2069"
+			echo -n "&#x200e; $icon &#x2068; $text &#x2069;"
 		else
-			echo -n "\u200e$icon"
+			echo -n "&#x200e; $icon"
 		fi
 	else
 		echo -n "$text"

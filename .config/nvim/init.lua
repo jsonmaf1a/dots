@@ -8,7 +8,7 @@ CONFIG = {
 	relative_number = false,
 	hide_cmdline = false,
 	colorscheme = {
-		dark = "onedark",
+		dark = "tokyonight-night",
 		light = "catppuccin-latte",
 	},
 }

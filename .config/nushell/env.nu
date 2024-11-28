@@ -47,6 +47,8 @@ $env.QML_XHR_ALLOW_FILE_READ = "1"
 $env.EDITOR = "nvim"
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 $env.NVM_DIR = ($env.HOME | path join ".nvm")
+$env.XDG_DATA_HOME = ($env.HOME | path join ".local" "share")
+$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 
 $env.SCRIPTS = ($env.HOME | path join ".local" "bin")
 $env.ICONS = ($env.HOME | path join ".local" "share" "icons" "dots")

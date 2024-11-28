@@ -6,7 +6,7 @@ configuration {
   display-window: "Windows:";
   drun-display-format: "{name}";
   matching: "normal";
-  font: "JetBrains Mono Medium 10";
+  font: "JetBrainsMono Nerd Font 10";
   modi: "window,run,drun";
   show-icons: true;
   icon-theme: "Fluent";
