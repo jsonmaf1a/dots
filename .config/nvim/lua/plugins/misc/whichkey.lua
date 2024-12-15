@@ -6,7 +6,7 @@ return {
 		vim.o.timeoutlen = 300
 	end,
 	opts = {
-		preset = "modern",
+		preset = "helix",
 		plugins = { spelling = true, marks = false, registers = true },
 		-- motions = { count = false, }, icons = {
 		icons = {
@@ -21,7 +21,7 @@ return {
 			{ "<leader>f", group = "find" },
 			{ "<leader>c", group = "code" },
 			{ "<leader>x", group = "diagnostics" },
-			-- { "<leader>b", group = "buffers" },
+			{ "<leader>b", group = "buffers" },
 			{ "<leader>g", group = "git" },
 			{ "<leader>M", group = "misc" },
 		},

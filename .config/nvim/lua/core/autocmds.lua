@@ -9,7 +9,6 @@ autocmd("VimEnter", {
 			set_dark_mode = function()
 				vim.api.nvim_set_option_value("background", "dark", {})
 				vim.cmd("colorscheme " .. CONFIG.colorscheme.dark)
-				-- vim.cmd("source ~/.config/nvim/lua/ui/highlights.lua")
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option_value("background", "light", {})
@@ -87,5 +86,27 @@ autocmd("BufEnter", {
 autocmd({ "BufWritePost" }, {
 	callback = function()
 		require("lint").try_lint()
+	end,
+})
+
+-- Autofold imports
+-- autocmd("LspNotify", {
+-- 	callback = function(args)
+-- 		if args.data.method == "textDocument/didOpen" then
+-- 			vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
+-- 		end
+-- 	end,
+-- })
+
+autocmd({ "CmdlineEnter" }, {
+	callback = function()
+		vim.opt.relativenumber = false
+		vim.cmd.redraw()
+	end,
+})
+autocmd({ "CmdlineLeave" }, {
+	callback = function()
+		vim.opt.relativenumber = true
+		vim.cmd.redraw()
 	end,
 })

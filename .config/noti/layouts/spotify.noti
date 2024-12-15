@@ -1,0 +1,22 @@
+FlexContainer(
+  direction = horizontal,
+  alignment = Alignment(
+    vertical = center,
+    horizontal = space-between,
+  ),
+  border = Border(size = 2, radius = 10, color = #FFFFFF),
+  spacing = Spacing(left = 14, right = 14),
+) {
+  FlexContainer(
+      direction = vertical,
+      alignment = Alignment(
+        vertical = center,
+        horizontal = start,
+      ),
+      max_width = 258
+  ) {
+      Text(kind = title, ellipsize_at = middle, style = italic)
+      Text(kind = body)
+  }
+  Image(max_size = 64)
+}

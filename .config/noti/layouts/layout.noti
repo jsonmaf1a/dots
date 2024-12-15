@@ -1,0 +1,21 @@
+FlexContainer(
+  direction = vertical,
+  alignment = Alignment(
+    vertical = center,
+    horizontal = center,
+  ),
+  border = Border(size = 2, radius = 5),
+  spacing = Spacing(left = 10, right = 10, top = 10, bottom = 10),
+) {
+  Image(max_size=36)
+  FlexContainer(
+      direction = vertical,
+      alignment = Alignment(
+        vertical = center,
+        horizontal = center,
+      ),
+  ) {
+      Text(kind = title, ellipsize_at = middle, style = bold)
+      Text(kind = body, justification = center)
+  }
+}

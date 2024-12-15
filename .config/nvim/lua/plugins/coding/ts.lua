@@ -27,7 +27,7 @@ return {
 			},
 
 			settings = {
-				separate_diagnostic_server = false,
+				separate_diagnostic_server = true,
 				complete_function_calls = false,
 				code_lens = "off",
 				tsserver_file_preferences = {

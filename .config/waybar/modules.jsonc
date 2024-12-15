@@ -1,135 +1,137 @@
 {
-  "hyprland/language": {
-    "format": "{}",
-    "format-alt": "{}",
-    "format-en": "EN",
-    "format-ru": "RU",
-    "format-uk": "UA"
-  },
-  "hyprland/workspaces": {
-    "all-outputs": true,
-    "active-only": false,
-    // "show-special": true,
-    "on-click": "activate",
-    "format": "{icon}",
-    "format-alt": "{icon}",
-    "on-hover": false,
-    "format-icons": {
-      "urgent": "󰑊",
-      "active": "󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊",
-      // "active": "",
-      "default": "󰑊"
+    "hyprland/language": {
+        "format": "{}",
+        "format-alt": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "format-uk": "UA"
     },
-    "persistent-workspaces": {
-      "1": [],
-      "2": [],
-      "3": []
+    "hyprland/workspaces": {
+        "all-outputs": true,
+        "active-only": false,
+        // "show-special": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-alt": "{icon}",
+        "on-hover": false,
+        "format-icons": {
+            "urgent": "󰑊",
+            "active": "󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊",
+            // "active": "",
+            "default": "󰑊"
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "tooltip": false
     },
-    "tooltip": false
-  },
-  "hyprland/window": {
-    "format": "{}",
-    "separate-outputs": true
-  },
-  "battery": {
-    "bat": "BAT0",
-    "states": {
-      "good": 90,
-      "warning": 30,
-      "critical": 10
+    "hyprland/window": {
+        "format": "{}",
+        "separate-outputs": true
     },
-    "format": "{icon}",
-    "format-alt": "{icon}",
-    "format-charging": "{icon}",
-    "format-full": " ",
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ],
-    // "format-icons": [
-    // 󱐋
-    //   "󰁺 ",
-    //   "󰁻 ",
-    //   "󰁼 ",
-    //   "󰁽 ",
-    //   "󰁾 ",
-    //   "󰁿 ",
-    //   "󰂀 ",
-    //   "󰂁 ",
-    //   "󰁹 "
-    // ],
-    "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
-  },
-  "clock": {
-    "format": "<b>{:%a, %b %d :: %I:%M %p}</b>",
-    "format-alt": "<b>{:%H:%M}</b>"
-  },
-  "custom/separator": {
-    "format": " "
-  },
-  "network": {
-    "interface": "wlan0",
-    "format-icons": [
-      "󰤯 ",
-      "󰤟 ",
-      "󰤢 ",
-      "󰤥 "
-    ],
-    "format-wifi": "{icon}",
-    "format-alt": "{icon} {bandwidthTotalBits}",
-    "on-click-right": "nm-connection-editor",
-    "tooltip-format": "{icon} {essid} {bandwidthTotalBytes}",
-    "format-disconnected": "󰤭 "
-  },
-  "tray": {
-    "show-passive-items": true,
-    "icon-size": 14,
-    "spacing": 5,
-  },
-  "group/power": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 500,
-      "children-class": "not-power",
-      "transition-left-to-right": false,
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            "good": 90,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon}",
+        "format-alt": "{icon}",
+        "format-charging": "{icon}",
+        "format-full": " ",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ],
+        // "format-icons": [
+        // 󱐋
+        //   "󰁺 ",
+        //   "󰁻 ",
+        //   "󰁼 ",
+        //   "󰁽 ",
+        //   "󰁾 ",
+        //   "󰁿 ",
+        //   "󰂀 ",
+        //   "󰂁 ",
+        //   "󰁹 "
+        // ],
+        "tooltip-format": "{timeTo}\n{capacity} % | {power} W"
     },
-    "modules": [
-      "custom/power",
-      "custom/quit",
-      "custom/lock",
-      "custom/reboot",
-    ]
-  },
-  "custom/power": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "rofi -show power-menu -modi power-menu:~/.config/hypr/scripts/rofi-power-menu"
-  },
-  "group/info": {
-    "orientation": "horizontal",
-    "modules": [
-      "hyprland/language",
-      "network",
-      "battery",
-    ]
-  },
-  "wireplumber": {
-    "format": "{icon}",
-    "format-muted": "󱃓",
-    "on-click": "helvum",
-    "format-icons": [
-      "",
-      "󰪞",
-      "󰪟",
-      "󰪠",
-      "󰪡",
-      "󰪢",
-      "󰪣",
-      "󰪤",
-      "󰪥"
-    ]
-  }
+    "clock": {
+        "format": "<b>{:%a, %b %d :: %I:%M %p}</b>",
+        "format-alt": "<b>{:%H:%M}</b>"
+    },
+    "custom/separator": {
+        "format": " "
+    },
+    "network": {
+        "interface": "wlan0",
+        "format-icons": [
+            "󰤯 ",
+            "󰤟 ",
+            "󰤢 ",
+            "󰤥 "
+        ],
+        "format-wifi": "{icon}",
+        "format-alt": "{icon} {bandwidthTotalBits}",
+        "on-click-right": "nm-connection-editor",
+        "tooltip-format": "{icon} {essid} {bandwidthTotalBytes}",
+        "format-disconnected": "󰤭 "
+    },
+    "tray": {
+        "show-passive-items": true,
+        "icon-size": 14,
+        "spacing": 5
+    },
+    "group/power": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-power",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/power",
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot"
+        ]
+    },
+    "custom/power": {
+        "format": " ",
+        "tooltip": false,
+        "on-click": "rofi -show power-menu -modi power-menu:~/.config/hypr/scripts/rofi-power-menu"
+    },
+    "group/info": {
+        "orientation": "horizontal",
+        "modules": [
+            "hyprland/language",
+            "network",
+            "battery"
+        ]
+    },
+    "wireplumber": {
+        "format": "{icon}",
+        "format-muted": "󱃓",
+        "on-click": "helvum",
+        "format-icons": [
+            "",
+            "󰪞",
+            "󰪟",
+            "󰪠",
+            "󰪡",
+            "󰪢",
+            "󰪣",
+            "󰪤",
+            "󰪥"
+        ]
+    }
 }

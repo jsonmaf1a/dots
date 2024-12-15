@@ -1,0 +1,18 @@
+[[theme]]
+name = "main"
+
+[theme.low]
+background = "#121218"
+foreground = "#ABB2BF"
+border = "#1A1B26"
+
+[theme.normal]
+background = "#121218"
+foreground = "#ABB2BF"
+border = "#1A1B26"
+
+[theme.critical]
+background = "#121218"
+foreground = "#E06B74"
+border = "#1A1B26"
+

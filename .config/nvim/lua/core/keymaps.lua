@@ -45,10 +45,6 @@ set_keymap("n", "<leader>cq", ":LspRestart<CR>", "Restart LSP")
 set_keymap("n", "<leader>co", "<cmd>TSToolsOrganizeImports<CR>", "Organize imports")
 set_keymap("n", "<leader>cu", "<cmd>TSToolsRemoveUnusedImports<CR>", "Remove unused imports")
 set_keymap("n", "<leader>cm", "<cmd>TSToolsAddMissingImports<CR>", "Add missing imports")
-set_keymap("n", "<leader>cN", utils.rename_file, "Smart rename")
-
--- Bind the function to a command or keymap
-vim.api.nvim_set_keymap("n", "<leader>rf", ":lua rename_file()<CR>", { noremap = true, silent = true })
 
 -- Debug
 set_keymap("n", "<leader>dc", dap.continue, "Continue")
@@ -168,19 +164,19 @@ set_keymap("n", "<C-Left>", "<cmd>SmartResizeLeft<cr>", "Decrease window width")
 set_keymap("n", "<A-h>", "<cmd>SmartResizeLeft<cr>", "Decrease window width")
 
 -- Buffers
--- set_keymap("n", "<S-h>", "<Cmd>BufferLineCyclePrev<CR>", "Move to previous buffer")
--- set_keymap("n", "<S-l>", "<Cmd>BufferLineCycleNext<CR>", "Move to next buffer")
--- set_keymap("n", "<C-p>", "<Cmd>BufferLinePick<CR>", "Pick buffer")
--- set_keymap("n", "<leader>bb", "<Cmd>BufferLineCyclePrev<CR>", "Move to previous buffer")
--- set_keymap("n", "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", "Move to next buffer")
--- set_keymap("n", "<leader>bc", "<Cmd>BufferLinePickClose<CR>", "Pick buffer to close")
--- set_keymap("n", "<leader>bd", "<Cmd>lua MiniBufremove.delete()<CR>", "Close current buffer")
+set_keymap("n", "<S-h>", "<Cmd>BufferLineCyclePrev<CR>", "Move to previous buffer")
+set_keymap("n", "<S-l>", "<Cmd>BufferLineCycleNext<CR>", "Move to next buffer")
+set_keymap("n", "<C-p>", "<Cmd>BufferLinePick<CR>", "Pick buffer")
+set_keymap("n", "<leader>bb", "<Cmd>BufferLineCyclePrev<CR>", "Move to previous buffer")
+set_keymap("n", "<leader>bn", "<Cmd>BufferLineCycleNext<CR>", "Move to next buffer")
+set_keymap("n", "<leader>bc", "<Cmd>BufferLinePickClose<CR>", "Pick buffer to close")
+set_keymap("n", "<leader>bd", "<Cmd>lua MiniBufremove.delete()<CR>", "Close current buffer")
 
 -- Swap buffers
--- set_keymap("n", "<leader>bh", splits.swap_buf_left, "Swap left")
--- set_keymap("n", "<leader>bj", splits.swap_buf_down, "Swap down")
--- set_keymap("n", "<leader>bk", splits.swap_buf_up, "Swap up")
--- set_keymap("n", "<leader>bl", splits.swap_buf_right, "Swap right")
+set_keymap("n", "<leader>bh", splits.swap_buf_left, "Swap left")
+set_keymap("n", "<leader>bj", splits.swap_buf_down, "Swap down")
+set_keymap("n", "<leader>bk", splits.swap_buf_up, "Swap up")
+set_keymap("n", "<leader>bl", splits.swap_buf_right, "Swap right")
 
 -- Smart navigation
 set_keymap({ "n", "t" }, "<C-h>", "<CMD>SmartCursorMoveLeft<CR>", "Move left")
@@ -236,6 +232,8 @@ set_keymap("n", "X", '"_X', "Delete char")
 set_keymap("v", "x", '"_x', "Delete char")
 set_keymap("v", "X", '"_X', "Delete char")
 
+set_keymap("x", "$", "g_", "Move cursor to the last non-blank character of the current line")
+
 -- Don't yank on visual paste
 set_keymap("v", "p", '"_dP', "Paste")
 
@@ -252,7 +250,7 @@ set_keymap("n", "<leader>xl", function()
 	lint.try_lint()
 end, "Lint file")
 
--- Find and replace
+-- Find and replace (Spectre) TODO: remove this shit
 set_keymap("n", "<leader>MS", '<cmd>lua require("spectre").toggle()<CR>', "Toggle Spectre")
 set_keymap("n", "<leader>Msw", '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', "Search current word")
 set_keymap("v", "<leader>sw", '<esc><cmd>lua require("spectre").open_visual()<CR>', "Search current word")

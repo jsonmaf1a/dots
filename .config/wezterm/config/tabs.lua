@@ -1,6 +1,5 @@
 local M = {}
 
-local wezterm = require("wezterm")
 local utils = require("config.utils")
 local mode = utils.get_appearance():find("Dark") and "dark" or "light"
 
@@ -13,16 +12,24 @@ local function set_color(dark, light)
 end
 
 local colors = {
-	bg = set_color("#1d1e21", "#fff"),
-	active = set_color("#282C33", "#E9E5E2"),
-	inactive = set_color("#222326", "#D1CFCE"),
+	-- bg = set_color("#1d1e21", "#fff"),
+	-- active = set_color("#282C33", "#E9E5E2"),
+	-- inactive = set_color("#222326", "#D1CFCE"),
+	-- hover = set_color("#444452", "#cdcdcd"),
+	-- fg = set_color("#99AEB3", "#898686"),
+
+	bg = set_color("#121218", "#fff"),
+	active = set_color("#1a1b26", "#E9E5E2"),
+	inactive = set_color("#16161E", "#D1CFCE"),
 	hover = set_color("#444452", "#cdcdcd"),
-	fg = set_color("#99AEB3", "#898686"),
+	fg = set_color("#a9b1d6", "#898686"),
 }
 
 local window_frame = {
 	inactive_titlebar_bg = colors.bg,
 	active_titlebar_bg = colors.bg,
+	inactive_titlebar_border_bottom = colors.bg,
+	active_titlebar_border_bottom = colors.bg,
 	button_fg = colors.fg,
 	button_bg = colors.bg,
 	button_hover_bg = "#3b3052",

@@ -1,4 +1,4 @@
 return {
-	"willothy/wezterm.nvim",
-	config = true,
+	-- "willothy/wezterm.nvim",
+	-- config = true,
 }

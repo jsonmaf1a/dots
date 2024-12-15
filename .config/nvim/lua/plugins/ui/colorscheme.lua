@@ -10,7 +10,7 @@ return {
 				light = "latte",
 				dark = "mocha",
 			},
-			transparent_background = true,
+			transparent_background = CONFIG.transparency,
 			default_integrations = true,
 			dim_inactive = {
 				enabled = false,
@@ -67,7 +67,7 @@ return {
 		priority = 1000,
 		opts = {
 			style = "darker",
-			transparent = true,
+			transparent = CONFIG.transparency,
 			term_colors = true,
 			ending_tildes = true,
 			code_style = {
@@ -88,7 +88,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
-			transparent = true,
+			transparent = CONFIG.transparency,
 		},
 	},
 }

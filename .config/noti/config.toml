@@ -1,17 +1,25 @@
+use = [
+    "~/.config/noti/themes/main.toml",
+    "~/.config/noti/apps/spotify.toml"
+]
+
 [general]
-font = [ "JetBrainsMono Nerd Font", 18 ]
-anchor = "top"
+font = "JetBrainsMono Nerd Font"
+anchor = "top right"
 offset = [10, 15]
-width = 350
-height = 100
+width = 300
+height = 80
 gap = 8
-sorting = "default"
+sorting = "urgency"
 sound = "/home/hapka/Documents/kits/!Ghosty - floatszn/!fx/!Ghosty - ddt.wav"
+limit = 3
 
 [display]
 markup = true
 padding = { horizontal = 20 }
-timeout = 3000
+theme = "main"
+# layout = "/home/hapka/.config/noti/layouts/layout.noti"
+timeout = 4000
 
 [display.image]
 max_size = 38
@@ -19,32 +27,15 @@ margin = 0
 rounding = 0
 
 [display.border]
-size = 0
-color = "#ABB2BF30"
-radius = 10
-
-[display.colors]
-low = { background = "#1D1E21", foreground = "#ABB2BF" }
-normal = { background = "#1D1E21", foreground = "#ABB2BF" }
-critical = { background = "#1D1E21", foreground = "#E06B74" }
+size = 2
+radius = 12
 
 [display.text]
 justification = "left"
 margin = { left = 15 }
 wrap = false
 ellipsize_at = "middle" 
+font_size = 18
 
 [display.title]
 style = "bold"
-
-[[app]]
-name = "Spotify"
-[app.display]
-padding = { horizontal = 14 }
-image = { rounding = 5, max_size = 64 }
-
-[[app]]
-name = "YouTube Music"
-[app.display]
-padding = { horizontal = 14 }
-image = { rounding = 5, max_size = 64 }

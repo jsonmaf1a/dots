@@ -18,7 +18,7 @@ $env.config = {
 
     table: {
         mode: reinforced  # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
-        index_mode: auto # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
+        index_mode: "auto" # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
         show_empty: false # show 'empty list' and 'empty record' placeholders for command output
         padding: { left: 1, right: 1 } # a left right padding of each column in a table
         trim: {
@@ -57,7 +57,7 @@ $env.config = {
 
 
 source ./keybindings.nu
-source ./theme.nu
+# source ./theme.nu
 
 source ~/.cache/zoxide.nu 
 source ~/.cache/carapace.nu

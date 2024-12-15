@@ -60,7 +60,7 @@ local globals = {
 
 vim.opt.fillchars:append("eob: ")
 vim.opt.fillchars:append("fold: ")
-vim.opt.fillchars:append("foldopen: ")
+vim.opt.fillchars:append("foldopen:")
 vim.opt.fillchars:append("foldsep: ")
 vim.opt.fillchars:append("foldclose:")
 

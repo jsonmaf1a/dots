@@ -1,0 +1,36 @@
+[general]
+font = [ "JetBrainsMono Nerd Font", 18 ]
+anchor = "top right"
+offset = [10, 15]
+width = 150
+height = 100
+gap = 8
+sorting = "default"
+sound = "/home/hapka/Documents/kits/!Ghosty - floatszn/!fx/!Ghosty - ddt.wav"
+
+[display]
+markup = true
+timeout = 3000
+layout = "/home/hapka/.config/noti/layouts/layout.noti"
+
+[display.image]
+max_size = 38
+margin = 0
+rounding = 0
+
+[display.border]
+size = 1
+color = "#a9b1d630"
+radius = 10
+
+[display.colors]
+low = { background = "#1D1E21", foreground = "#ABB2BF" }
+normal = { background = "#1D1E21", foreground = "#ABB2BF" }
+critical = { background = "#1D1E21", foreground = "#E06B74" }
+
+[[app]]
+name = "Spotify"
+[app.display]
+# layout = "/home/hapka/.config/noti/layouts/spotify.noti"
+padding = { horizontal = 14 }
+image = { rounding = 5, max_size = 64 }

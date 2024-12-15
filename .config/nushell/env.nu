@@ -36,9 +36,9 @@ $env.ZSH = ($env.HOME | path join ".oh-my-zsh")
 $env.BUN_INSTALL = ($env.HOME | path join ".bun")
 $env.PNPM_HOME = ($env.HOME | path join ".local" "share" "pnpm")
 $env.DOTNET_ROOT = ($env.HOME | path join ".dotnet")
-$env.XCURSOR_THEME = "Bibata-Modern-Classic"
+$env.XCURSOR_THEME = "Bibata-Modern-Ice"
 $env.QT_QPA_PLATFORM = "xcb"
-$env.GTK_THEME = "Adwaita:dark"
+# $env.GTK_THEME = "Adwaita:dark"
 $env.XCURSOR_SIZE = "24"
 $env.STARSHIP_CONFIG = ($env.HOME | path join ".config" "starship" "starship.toml")
 $env.SSH_AUTH_SOCK = ($env.XDG_RUNTIME_DIR | path join "ssh-agent.socket")
@@ -62,6 +62,7 @@ path add ($env.DOTNET_ROOT | path join "tools")
 path add ($env.HOME | path join "Android" "Sdk" "platform-tools")
 path add $env.PNPM_HOME
 path add ($env.BUN_INSTALL | path join "bin")
+path add ($env.HOME | path join ".ghcup" "bin")
 
 zoxide init nushell | save -f ~/.cache/zoxide.nu
 starship init nu | save -f ~/.cache/starship.nu

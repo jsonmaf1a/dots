@@ -84,7 +84,6 @@ export def main [] {
         shape_variable: '#c678dd'
 
         foreground: '#5c6370'
-        background: '#1e2127'
         cursor: '#5c6370'
 
         empty: '#61afef'
@@ -113,9 +112,9 @@ export def "update terminal" [] {
         
     $"
     (ansi -o $osc_screen_foreground_color)($theme.foreground)(char bel)
-    (ansi -o $osc_screen_background_color)($theme.background)(char bel)
     (ansi -o $osc_cursor_color)($theme.cursor)(char bel)
     "
+    # ^ (ansi -o $osc_screen_background_color)($theme.background)(char bel)
     # Line breaks above are just for source readability
     # but create extra whitespace when activating. Collapse
     # to one line and print with no-newline

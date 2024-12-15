@@ -3,7 +3,6 @@ local separators = require("ui.assets").separators
 local utils = require("utils")
 
 local Job = require("plenary.job")
-local async = require("plenary.async")
 
 local bg = "NONE"
 
