@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# WIP
+
 if [[ $1 == "charging" ]]; then
   noti send "Battery status: charging" -a "Battery" -r 5
   exit 0;
