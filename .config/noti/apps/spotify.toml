@@ -4,13 +4,15 @@ name = "main-spotify"
 [theme.low]
 background = "#12121899"
 foreground = "#ABB2BF"
-border = "#ABB2BF"
+[theme.low.border]
+mode = "linear-gradient"
+degree = 49
+colors = ["#ABB2BF", "#1ED760", "#ABB2BF"]
 
 [[app]]
 name = "Spotify"
 [app.display]
 theme = "main-spotify"
-# layout = "/home/hapka/.config/noti/layouts/spotify.noti"
 padding = { horizontal = 14 }
 image = { rounding = 5, max_size = 56 }
-border = {size = 2}
+border = {size = 3}

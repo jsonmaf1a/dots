@@ -7,6 +7,7 @@ return {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
 			"HiPhish/rainbow-delimiters.nvim",
+			"nushell/tree-sitter-nu",
 		},
 		config = function()
 			local treesitter = require("nvim-treesitter.configs")
@@ -53,7 +54,7 @@ return {
 					"go",
 					"rust",
 					"cpp",
-					"latex",
+					"nu",
 				},
 			})
 

@@ -64,6 +64,50 @@ export def main [] {
                 ]
             }
         }
+        {
+            name: insert_left
+            modifier: alt
+            keycode: char_h
+            mode: [vi_insert]
+            event: {
+                until: [
+                    { send: left }
+                ]
+            }
+        }
+        {
+            name: insert_right
+            modifier: alt
+            keycode: char_l
+            mode: [vi_insert]
+            event: {
+                until: [
+                    { send: right }
+                ]
+            }
+        }
+        {
+            name: insert_up
+            modifier: alt
+            keycode: char_k
+            mode: [vi_insert]
+            event: {
+                until: [
+                    { send: up }
+                ]
+            }
+        }
+        {
+            name: insert_down
+            modifier: alt
+            keycode: char_j
+            mode: [vi_insert]
+            event: {
+                until: [
+                    { send: down }
+                ]
+            }
+        }
     ]
 }
 

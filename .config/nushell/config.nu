@@ -6,6 +6,7 @@ $env.config = {
     show_banner: false # true or false to enable or disable the welcome banner at startup
     edit_mode: vi # emacs, vi
     error_style: "fancy" # "fancy" or "plain" for screen reader-friendly error messages
+    buffer_editor: "nvim"
 
     ls: {
         use_ls_colors: true # use the LS_COLORS environment variable to colorize output
@@ -19,11 +20,11 @@ $env.config = {
     table: {
         mode: reinforced  # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
         index_mode: "auto" # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
-        show_empty: false # show 'empty list' and 'empty record' placeholders for command output
+        show_empty: true # show 'empty list' and 'empty record' placeholders for command output
         padding: { left: 1, right: 1 } # a left right padding of each column in a table
         trim: {
             methodology: truncating # wrapping or truncating
-            truncating_suffix: "..." # A suffix used by the 'truncating' methodology
+            truncating_suffix: "…" # A suffix used by the 'truncating' methodology
         }
         header_on_separator: false # show header text on separator/border line
     }
@@ -56,8 +57,7 @@ $env.config = {
 }
 
 
-source ./keybindings.nu
-# source ./theme.nu
+source ./binds.nu
 
 source ~/.cache/zoxide.nu 
 source ~/.cache/carapace.nu

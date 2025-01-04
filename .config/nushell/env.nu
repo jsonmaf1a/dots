@@ -49,9 +49,11 @@ $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 $env.NVM_DIR = ($env.HOME | path join ".nvm")
 $env.XDG_DATA_HOME = ($env.HOME | path join ".local" "share")
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
-
+$env.ELECTRON_OZONE_PLATFORM_HINT = "wayland"
 $env.SCRIPTS = ($env.HOME | path join ".local" "bin")
 $env.ICONS = ($env.HOME | path join ".local" "share" "icons" "dots")
+$env.LC_ALL = "en_US.UTF-8"
+$env.LANG = "en_US.UTF-8"
 
 path add /usr/local/go/bin
 path add ($env.HOME | path join ".cargo" "bin")

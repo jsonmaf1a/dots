@@ -48,4 +48,23 @@ M.truncate = function(str, n)
 	return str:sub(1, n - 1) .. (str:len() > n and "..." or "")
 end
 
+M.load_env = function(file)
+	local env_file = io.open(file, "r")
+	if not env_file then
+		return {}
+	end
+
+	local env = {}
+	for line in env_file:lines() do
+		if line:match("^[A-Z0-9_]+=.+") then
+			local k, v = line:match("^([A-Z0-9_]+)=(.+)")
+
+			env[k] = v
+		end
+	end
+
+	env_file:close()
+	return env
+end
+
 return M

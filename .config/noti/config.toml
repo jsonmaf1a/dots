@@ -1,6 +1,6 @@
 use = [
-    "~/.config/noti/themes/main.toml",
-    "~/.config/noti/apps/spotify.toml"
+    "./themes/main.toml",
+    "./apps/*",
 ]
 
 [general]
@@ -10,20 +10,29 @@ offset = [10, 15]
 width = 300
 height = 80
 gap = 8
-sorting = "urgency"
-sound = "/home/hapka/Documents/kits/!Ghosty - floatszn/!fx/!Ghosty - ddt.wav"
-limit = 3
+limit = 10
+idle_threshold = "10s"
+
+[general.sorting]
+by = "urgency"
+ordering = "ascending"
 
 [display]
 markup = true
-padding = { horizontal = 20 }
+padding = { horizontal = 20, vertical = 5 }
 theme = "main"
-# layout = "/home/hapka/.config/noti/layouts/layout.noti"
-timeout = 4000
+# layout = "./layouts/layout.noti"
+
+[display.icons]
+theme = "Breeze-dark"
+
+[display.timeout]
+default = 5000
+critical = 0
 
 [display.image]
 max_size = 38
-margin = 0
+margin = { right = 15 }
 rounding = 0
 
 [display.border]
@@ -31,11 +40,17 @@ size = 2
 radius = 12
 
 [display.text]
-justification = "left"
-margin = { left = 15 }
-wrap = false
-ellipsize_at = "middle" 
-font_size = 18
+alignment = "left"
+justify = false
+margin = 0
+font_size = 16
+ellipsize = "end"
 
 [display.title]
 style = "bold"
+wrap = false
+
+[display.body]
+font_size = 15
+wrap = true
+wrap_mode = "word-char"

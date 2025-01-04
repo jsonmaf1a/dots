@@ -25,8 +25,8 @@
             "2": [],
             "3": []
         },
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "on-scroll-down": "hyprctl dispatch workspace e+1",
+        "on-scroll-up": "hyprctl dispatch workspace e-1",
         "tooltip": false
     },
     "hyprland/window": {

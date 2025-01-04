@@ -1,21 +1,25 @@
-FlexContainer(
-  direction = vertical,
+alias Row = FlexContainer(direction = horizontal)
+alias Column = FlexContainer(direction = vertical)
+alias GenericText = Text(font_size = 20)
+
+Row(
   alignment = Alignment(
     vertical = center,
     horizontal = center,
   ),
   border = Border(size = 2, radius = 5),
-  spacing = Spacing(left = 10, right = 10, top = 10, bottom = 10),
+  spacing = Spacing(10),
 ) {
-  Image(max_size=36)
-  FlexContainer(
-      direction = vertical,
+  Column(
       alignment = Alignment(
         vertical = center,
         horizontal = center,
       ),
+      max_width = 240
   ) {
-      Text(kind = title, ellipsize_at = middle, style = bold)
-      Text(kind = body, justification = center)
+      GenericText(kind = title, ellipsize_at = middle, style = bold)
+      GenericText(kind = body, justification = center)
   }
+
+  Image(max_size = 32)
 }

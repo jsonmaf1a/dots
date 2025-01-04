@@ -16,7 +16,7 @@
 
 window#waybar {
     background: @background;
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 #tray menu,
