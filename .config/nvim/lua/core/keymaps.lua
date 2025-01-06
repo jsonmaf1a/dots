@@ -22,9 +22,10 @@ set_keymap("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", "Type definitio
 set_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, "Actions")
 set_keymap("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic")
 set_keymap("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic")
--- set_keymap("n", "K", vim.lsp.buf.hover, "Show docs")
-set_keymap("n", "K", hover.hover, "Show docs")
-set_keymap("n", "gK", hover.hover_select, "Docs select source")
+set_keymap("n", "K", vim.lsp.buf.hover, "Show docs")
+-- set_keymap("n", "K", hover.hover, "Show docs")
+
+set_keymap("n", "gK", hover.hover, "hover.nvim")
 set_keymap("n", "<C-p>", function()
 	hover.hover_switch("previous")
 end, "Docs previous source")
