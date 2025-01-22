@@ -16,7 +16,7 @@ alias pasearch = paru -Ss                                       # search
 alias paclean = paru -Scc                                       # clean cache
 
 alias pnpx = pnpm dlx
-alias pnpi = pnpm add 
+alias pnpi = pnpm add
 alias pnpg = pnpm add -g
 alias pnpr = pnpm run
 
@@ -28,11 +28,13 @@ alias l = ls -la
 alias cb = wl-copy
 alias gc = git clone
 alias pp = ping 8.8.8.8
-alias pick = hyprpicker -a -f 
+alias pick = hyprpicker -a -f
 alias sr = systemctl soft-reboot
 
 alias ":q" = exit
+alias ":q!" = exit
 alias ":qa" = exit
+alias ":qa!" = exit
 alias ":wqa" = exit
 
 alias nvchad = with-env {NVIM_APPNAME: "nvchad"} { nvim }

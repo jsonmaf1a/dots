@@ -10,7 +10,7 @@ local function get_theme(appearance)
 		return {
 			-- theme = "OneDark (base16)",
 			theme = "tokyonight_night",
-			cursor = "Bibata-Modern-Ice",
+			cursor = "Bibata-Modern-Classic",
 		}
 	else
 		return {

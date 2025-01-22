@@ -66,6 +66,8 @@ path add $env.PNPM_HOME
 path add ($env.BUN_INSTALL | path join "bin")
 path add ($env.HOME | path join ".ghcup" "bin")
 
+source ./fnm.nu
+
 zoxide init nushell | save -f ~/.cache/zoxide.nu
 starship init nu | save -f ~/.cache/starship.nu
 carapace _carapace nushell | save --force ~/.cache/carapace.nu

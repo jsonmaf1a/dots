@@ -18,6 +18,15 @@ autocmd("VimEnter", {
 	end,
 })
 
+-- Remove trailing whitespaces on save
+autocmd("BufWritePre", {
+	callback = function()
+		local save_cursor = vim.fn.getpos(".")
+		vim.cmd([[%s/\s\+$//e]])
+		vim.fn.setpos(".", save_cursor)
+	end,
+})
+
 -- Disable ufo
 autocmd("FileType", {
 	pattern = { "NvimTree", "neo-tree", "aerial" },
@@ -63,10 +72,10 @@ autocmd("TextYankPost", {
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*/node_modules/*", command = "lua vim.diagnostic.disable(0)" })
 
 -- Show `` in specific files
--- autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" }, command = "setlocal conceallevel=0" })
+autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.json" }, command = "setlocal conceallevel=0" })
 
 -- Enable spell checking for certain file types
--- autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" })
+autocmd({ "BufRead", "BufNewFile" }, { pattern = { "*.txt", "*.md", "*.tex" }, command = "setlocal spell" })
 
 -- Get icon based on filetype for lualine 'filename' module
 autocmd("BufEnter", {
@@ -89,15 +98,7 @@ autocmd({ "BufWritePost" }, {
 	end,
 })
 
--- Autofold imports
--- autocmd("LspNotify", {
--- 	callback = function(args)
--- 		if args.data.method == "textDocument/didOpen" then
--- 			vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
--- 		end
--- 	end,
--- })
-
+-- Toggle relativenumber
 autocmd({ "CmdlineEnter" }, {
 	callback = function()
 		vim.opt.relativenumber = false
@@ -110,3 +111,13 @@ autocmd({ "CmdlineLeave" }, {
 		vim.cmd.redraw()
 	end,
 })
+
+-- NOTE: wait for neovim v0.11;
+-- Autofold imports
+-- autocmd("LspNotify", {
+-- 	callback = function(args)
+-- 		if args.data.method == "textDocument/didOpen" then
+-- 			vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
+-- 		end
+-- 	end,
+-- })
