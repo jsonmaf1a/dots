@@ -46,8 +46,8 @@ $env.config = {
     }
 
     filesize: {
-        metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
-        format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
+        unit: metric # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
+        # format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
     }
 
     cursor_shape: {
@@ -59,9 +59,9 @@ $env.config = {
 
 source ./binds.nu
 
-source ~/.cache/zoxide.nu 
+source ~/.cache/zoxide.nu
 source ~/.cache/carapace.nu
 
 source ./aliases.nu
 
-use ~/.cache/starship.nu 
+use ~/.cache/starship.nu

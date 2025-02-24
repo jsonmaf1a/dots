@@ -65,6 +65,7 @@ path add ($env.HOME | path join "Android" "Sdk" "platform-tools")
 path add $env.PNPM_HOME
 path add ($env.BUN_INSTALL | path join "bin")
 path add ($env.HOME | path join ".ghcup" "bin")
+path add ($env.HOME | path join ".local" "bin")
 
 source ./fnm.nu
 

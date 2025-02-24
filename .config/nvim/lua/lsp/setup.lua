@@ -21,7 +21,8 @@ local function on_attach(client, bufnr)
 	end
 end
 
-local capabilities = require("blink.cmp").get_lsp_capabilities()
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
@@ -78,6 +79,15 @@ require("mason-lspconfig").setup_handlers({
 			handlers = handlers,
 			on_attach = on_attach,
 			settings = require("lsp.servers.lua_ls").settings,
+		})
+	end,
+
+	["clangd"] = function()
+		lspconfig.clangd.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			handlers = handlers,
+			root_dir = lspconfig.util.root_pattern(".clang-format", ".git", "compile_commands.json", "CMakeLists.txt"),
 		})
 	end,
 })
