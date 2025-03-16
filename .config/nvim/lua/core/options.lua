@@ -26,9 +26,9 @@ local options = {
 	expandtab = true,
 	pumheight = 10,
 	laststatus = 3,
-	tabstop = 2,
-	shiftwidth = 2,
-	softtabstop = 2,
+	tabstop = CONFIG.indent,
+	shiftwidth = CONFIG.indent,
+	softtabstop = CONFIG.indent,
 	backspace = "indent,eol,start",
 	viminfo = "'1000",
 	backup = false,
@@ -45,7 +45,7 @@ local options = {
 	updatetime = 100,
 	timeoutlen = 200,
 	mouse = CONFIG.enable_mouse and "a" or "",
-	mousemoveevent = CONFIG.enable_mouse,
+	-- mousemoveevent = CONFIG.enable_mouse,
 	langmap = "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz",
 }
 

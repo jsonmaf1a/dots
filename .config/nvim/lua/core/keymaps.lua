@@ -12,6 +12,7 @@ local ls = require("luasnip")
 local conform = require("conform")
 local lint = require("lint")
 local hover = require("hover")
+-- local snacks = require("snacks")
 
 -- LSP
 set_keymap("n", "gR", ":lua vim.lsp.buf.references({ includeDeclaration = false })", "References")
@@ -96,6 +97,7 @@ set_keymap("n", "<leader>xt", "<cmd>TodoTrouble<cr>", "Todo trouble")
 
 -- File explorer
 set_keymap("n", "<leader>e", "<cmd>Neotree reveal_force_cwd filesystem toggle<CR>", "Explorer")
+-- set_keymap("n", "<leader>e", snacks.explorer.open, "Explorer")
 
 -- Telescope
 set_keymap("n", "<leader>/", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", "Browse files")
@@ -196,6 +198,9 @@ set_keymap("n", "<leader>m", "<cmd>Mason<CR>", "Mason")
 
 -- Save on CTRL + S
 set_keymap({ "n", "i", "v" }, "<C-s>", "<Esc><cmd>w<CR>", "Save")
+
+-- Swap splits
+set_keymap("n", "<C-x>", "<C-w>x", "Swap splits")
 
 -- Translate
 set_keymap("x", "<leader>tr", "<CMD>Translate ru<CR>", "Translate to russian")

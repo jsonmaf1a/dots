@@ -112,6 +112,22 @@ autocmd({ "CmdlineLeave" }, {
 	end,
 })
 
+-- .vert & .frag support
+autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "*.vert", "*.frag" },
+	callback = function()
+		vim.bo.filetype = "glsl"
+	end,
+})
+
+-- hyprland support
+autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { "hyprland.conf", "*/*/hypr/*.conf" },
+	callback = function()
+		vim.bo.filetype = "hyprlang"
+	end,
+})
+
 -- NOTE: wait for neovim v0.11;
 -- Autofold imports
 -- autocmd("LspNotify", {

@@ -22,7 +22,7 @@ alias pnpr = pnpm run
 
 alias cd = z
 alias hx = helix
-alias rm = trash
+alias rm = trash -v
 alias md = mkdir
 alias l = ls -la
 alias cb = wl-copy

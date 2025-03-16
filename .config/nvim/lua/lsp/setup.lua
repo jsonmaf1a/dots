@@ -22,7 +22,6 @@ local function on_attach(client, bufnr)
 end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
--- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 capabilities.textDocument.foldingRange = {
 	dynamicRegistration = false,
@@ -88,6 +87,14 @@ require("mason-lspconfig").setup_handlers({
 			capabilities = capabilities,
 			handlers = handlers,
 			root_dir = lspconfig.util.root_pattern(".clang-format", ".git", "compile_commands.json", "CMakeLists.txt"),
+			cmd = {
+				"clangd",
+				"--completion-style=detailed",
+				"--background-index",
+				"--clang-tidy",
+				"--query-driver=/usr/bin/g++", -- Use GCC 14's standard library
+				"--header-insertion=never",
+			},
 		})
 	end,
 })
