@@ -30,7 +30,7 @@ config.xcursor_theme = colorscheme.cursor
 -- config.font = wezterm.font("JetBrainsMono Nerd Font") --  TEST: => -> >= 1 2 3 4 5 6 7 8 9 0
 config.font = wezterm.font({
 	family = "JetBrainsMono Nerd Font",
-	harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
+	-- harfbuzz_features = { "calt=0", "clig=0", "liga=0" },
 })
 config.font_size = 14
 config.check_for_updates = false
