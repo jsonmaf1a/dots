@@ -1,7 +1,8 @@
 return {
 	{
 		"catppuccin/nvim",
-		dependencies = "f-person/auto-dark-mode.nvim",
+		name = "catppuccin",
+		dependencies = { "f-person/auto-dark-mode.nvim" },
 		priority = 1000,
 		lazy = false,
 		opts = {
@@ -10,12 +11,12 @@ return {
 				light = "latte",
 				dark = "mocha",
 			},
-			transparent_background = CONFIG.transparency,
+			transparent_background = vim.g.CONFIG.transparency,
 			default_integrations = true,
 			dim_inactive = {
-				enabled = false,
+				enabled = true,
 				shade = "dark",
-				percentage = 0.15,
+				percentage = 1.00,
 			},
 			integrations = {
 				cmp = true,
@@ -57,38 +58,13 @@ return {
 				},
 			},
 		},
-		config = function(_, opts)
-			require("catppuccin").setup(opts)
-		end,
-	},
-	{
-		"navarasu/onedark.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {
-			style = "darker",
-			transparent = CONFIG.transparency,
-			term_colors = true,
-			ending_tildes = true,
-			code_style = {
-				comments = "italic",
-				keywords = "none",
-				functions = "italic",
-				strings = "none",
-				variables = "bold",
-			},
-		},
-		config = function(_, opts)
-			require("onedark").load()
-			require("onedark").setup(opts)
-		end,
 	},
 	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
 		opts = {
-			transparent = CONFIG.transparency,
+			transparent = vim.g.CONFIG.transparency,
 		},
 	},
 }

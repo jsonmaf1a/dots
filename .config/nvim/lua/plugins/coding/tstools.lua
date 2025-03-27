@@ -68,39 +68,11 @@ local hover_handler = function(err, result, ctx, config)
 	})
 end
 
-local border = require("ui.assets").border
-
 return {
 	"pmizio/typescript-tools.nvim",
 	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-	opts = {},
 	config = function()
 		require("typescript-tools").setup({
-			on_attach = function()
-				if vim.fn.has("nvim-0.10") then
-					vim.lsp.inlay_hint.enable(true)
-				end
-			end,
-			handlers = {
-				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-					silent = true,
-					border = border or "rounded",
-				}),
-				--
-				-- ["textDocument/hover"] = vim.lsp.with(hover_handler, {
-				-- 	silent = true,
-				-- 	border = border or "rounded",
-				-- }),
-				["textDocument/signatureHelp"] = vim.lsp.with(
-					vim.lsp.handlers.signature_help,
-					{ border = border or "rounded" }
-				),
-				["textDocument/publishDiagnostics"] = vim.lsp.with(
-					vim.lsp.diagnostic.on_publish_diagnostics,
-					{ virtual_text = CONFIG.virtual_text }
-				),
-			},
-
 			settings = {
 				separate_diagnostic_server = true,
 				complete_function_calls = false,

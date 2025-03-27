@@ -120,7 +120,7 @@ local wakatime = {
 
 local config = {
 	options = {
-		globalstatus = CONFIG.global_statusline,
+		globalstatus = vim.g.CONFIG.global_statusline,
 		component_separators = "",
 		section_separators = { left = "", right = "" },
 		theme = {

@@ -17,7 +17,7 @@ return {
 					floating = {
 						style = "minimal",
 						focusable = true,
-						border = require("ui.assets").border or "rounded",
+						border = vim.g.CONFIG.border,
 						zindex = 51,
 					},
 				},

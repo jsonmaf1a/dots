@@ -42,3 +42,4 @@ alias astronvim = with-env {NVIM_APPNAME: "astronvim"} { nvim }
 
 alias xgnome = with-env {XINITRC: "~/xsessions/gnome"} { startx }
 alias xplasma = with-env {XINITRC: "~/xsessions/plasma"} { startx }
+alias wlplasma = /usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland

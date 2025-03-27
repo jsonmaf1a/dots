@@ -18,7 +18,7 @@ return {
 			start_in_insert = true,
 
 			-- These are passed to nvim_open_win
-			border = require("ui.assets").border,
+			border = vim.g.CONFIG.border,
 			-- 'editor' and 'win' will default to being centered
 			relative = "cursor",
 

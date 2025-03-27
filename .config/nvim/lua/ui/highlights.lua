@@ -17,7 +17,7 @@ end
 -- 	FileExplorer = { bg = "#16161E", bold = true, italic = true },
 -- 	WhichKeyFloat = { bg = "NONE" },
 -- }
-local bg = CONFIG.transparency and "NONE" or colors.bg
+local bg = vim.g.CONFIG.transparency and "NONE" or colors.bg
 
 local highlights = {
 	CursorLine = { bg = colors.purple_dark },

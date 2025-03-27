@@ -13,10 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 local paths = {
 	{ import = "plugins.coding" },
-	{ import = "plugins.coding.lsp" },
 	{ import = "plugins.coding.dap" },
-	{ import = "plugins.misc" },
 	{ import = "plugins.ui" },
+	{ import = "plugins.misc" },
 }
 
 local opts = {
@@ -28,7 +27,7 @@ local opts = {
 		notify = false,
 	},
 	ui = {
-		border = "rounded",
+		border = vim.g.CONFIG.border,
 	},
 }
 

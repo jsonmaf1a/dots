@@ -4,6 +4,7 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
+			"catppuccin",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
 			"HiPhish/rainbow-delimiters.nvim",

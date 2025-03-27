@@ -8,11 +8,11 @@ autocmd("VimEnter", {
 			update_interval = 1000,
 			set_dark_mode = function()
 				vim.api.nvim_set_option_value("background", "dark", {})
-				vim.cmd("colorscheme " .. CONFIG.colorscheme.dark)
+				vim.cmd("colorscheme " .. vim.g.CONFIG.colorscheme.dark)
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option_value("background", "light", {})
-				vim.cmd("colorscheme " .. CONFIG.colorscheme.light)
+				vim.cmd("colorscheme " .. vim.g.CONFIG.colorscheme.light)
 			end,
 		})
 	end,
@@ -29,7 +29,7 @@ autocmd("BufWritePre", {
 
 -- Disable ufo
 autocmd("FileType", {
-	pattern = { "NvimTree", "neo-tree", "aerial" },
+	pattern = { "NvimTree", "neo-tree" },
 	callback = function()
 		require("ufo").detach()
 		vim.opt_local.foldenable = false
@@ -64,7 +64,7 @@ autocmd("BufWinEnter", {
 autocmd("TextYankPost", {
 	pattern = { "*" },
 	callback = function()
-		vim.cmd("silent! lua vim.highlight.on_yank({higroup = 'Yank', timeout = 150})")
+		vim.cmd("silent! lua vim.hl.on_yank({higroup = 'Yank', timeout = 150})")
 	end,
 })
 
@@ -130,10 +130,10 @@ autocmd({ "BufRead", "BufNewFile" }, {
 
 -- NOTE: wait for neovim v0.11;
 -- Autofold imports
--- autocmd("LspNotify", {
--- 	callback = function(args)
--- 		if args.data.method == "textDocument/didOpen" then
--- 			vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
--- 		end
--- 	end,
--- })
+autocmd("LspNotify", {
+	callback = function(args)
+		if args.data.method == "textDocument/didOpen" then
+			vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
+		end
+	end,
+})

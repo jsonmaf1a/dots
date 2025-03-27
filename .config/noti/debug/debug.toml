@@ -6,8 +6,10 @@ use = [
 font = "JetBrainsMono Nerd Font"
 anchor = "right"
 offset = [10, 15]
-width = 84
-height = 84
+# width = 84
+# height = 84
+width = 300
+height = 80
 gap = 10
 limit = 10
 idle_threshold = "10s"
@@ -15,9 +17,9 @@ sorting = "urgency"
 
 [display]
 markup = true
-padding = [5, 10] 
+padding = [5, 10]
 theme = "main"
-layout = "./layout.noti"
+# layout = "./layout.noti"
 
 [display.icons]
 theme = "Breeze-dark"
@@ -38,7 +40,7 @@ radius = 10
 [display.text]
 alignment = "left"
 wrap = false
-ellipsize = "end" 
+ellipsize = "end"
 
 [display.title]
 font_size = 20

@@ -18,8 +18,6 @@ M.colors = {
 	cyan = "#55B6C2",
 }
 
-M.border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-
 M.separators = {
 	rounded = {
 		left = "",

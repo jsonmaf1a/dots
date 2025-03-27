@@ -27,7 +27,7 @@ return {
 		},
 		win = {
 			title = false,
-			border = "rounded",
+			border = vim.g.CONFIG.border,
 			zindex = 1000,
 			wo = {
 				winblend = 0,
