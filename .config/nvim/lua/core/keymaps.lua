@@ -159,7 +159,7 @@ set_keymap("v", "p", '"_dP', "Paste")
 set_keymap("x", "$", "g_", "Move cursor to the last non-blank character of the current line")
 
 -- Translate
-set_keymap("x", "<leader>tr", "<CMD>Translate ua<CR>", "Translate to ukrainian")
+set_keymap("x", "<leader>tu", "<CMD>Translate uk<CR>", "Translate to ukrainian")
 set_keymap("x", "<leader>te", "<CMD>Translate en<CR>", "Translate to english")
 
 -- Todo
