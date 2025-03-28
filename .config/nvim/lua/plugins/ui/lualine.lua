@@ -1,6 +1,6 @@
-local colors = require("ui.assets").colors
-local separators = require("ui.assets").separators
 local utils = require("utils")
+local colors = require("utils.assets").colors
+local separators = require("utils.assets").separators
 
 local Job = require("plenary.job")
 
@@ -94,29 +94,29 @@ local diff = {
 	color = { bg = bg, gui = "italic" },
 }
 
-local wakatime_result = ""
-
-local function get_wakatime()
-	Job:new({
-		command = "wakatime",
-		args = { "--today" },
-		on_exit = function(job, return_val)
-			wakatime_result = table.concat(job:result(), " ") or ""
-		end,
-	}):start()
-end
-
-local wakatime_interval = 5
-vim.loop.new_timer():start(0, wakatime_interval * 60 * 1000, vim.schedule_wrap(get_wakatime))
-
-local wakatime = {
-	function()
-		return wakatime_result
-	end,
-	cond = conditions.wakatime_loaded,
-	icon = "󱑆",
-	color = { fg = colors.accent },
-}
+-- local wakatime_result = ""
+--
+-- local function get_wakatime()
+-- 	Job:new({
+-- 		command = "wakatime",
+-- 		args = { "--today" },
+-- 		on_exit = function(job, return_val)
+-- 			wakatime_result = table.concat(job:result(), " ") or ""
+-- 		end,
+-- 	}):start()
+-- end
+--
+-- local wakatime_interval = 5
+-- vim.loop.new_timer():start(0, wakatime_interval * 60 * 1000, vim.schedule_wrap(get_wakatime))
+--
+-- local wakatime = {
+-- 	function()
+-- 		return wakatime_result
+-- 	end,
+-- 	cond = conditions.wakatime_loaded,
+-- 	icon = "󱑆",
+-- 	color = { fg = colors.accent },
+-- }
 
 local config = {
 	options = {
@@ -184,7 +184,7 @@ local config = {
 			diagnostics,
 		},
 		lualine_c = {
-			wakatime,
+			-- wakatime,
 		},
 		lualine_x = {
 			branch,

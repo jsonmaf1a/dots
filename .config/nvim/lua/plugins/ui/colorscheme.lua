@@ -2,7 +2,6 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		dependencies = { "f-person/auto-dark-mode.nvim" },
 		priority = 1000,
 		lazy = false,
 		opts = {
@@ -27,7 +26,7 @@ return {
 				mason = true,
 				neotree = true,
 				ufo = true,
-				lsp_trouble = false,
+				lsp_trouble = true,
 				which_key = true,
 				dap = true,
 				dap_ui = true,
@@ -47,10 +46,10 @@ return {
 						information = { "italic" },
 					},
 					underlines = {
-						errors = { "underline" },
-						hints = { "underline" },
-						warnings = { "underline" },
-						information = { "underline" },
+						errors = { "undercurl" },
+						hints = { "undercurl" },
+						warnings = { "undercurl" },
+						information = { "undercurl" },
 					},
 					inlay_hints = {
 						background = true,

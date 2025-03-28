@@ -1,4 +1,4 @@
-local colors = require("ui.assets").colors
+local colors = require("utils.assets").colors
 
 local function define_highlights(highlights)
 	for name, opts in pairs(highlights) do
@@ -93,4 +93,4 @@ local highlights = {
 	DiagnosticHint = { fg = colors.cyan, bg = bg },
 }
 
-define_highlights(highlights)
+-- define_highlights(highlights)

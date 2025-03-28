@@ -1,2 +1,2 @@
-require("ui.signs")
+require("core.ui.signs")
 -- require("ui.highlights")

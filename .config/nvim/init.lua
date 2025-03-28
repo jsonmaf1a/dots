@@ -1,8 +1,8 @@
 vim.g.CONFIG = {
-	showmode = false, --- e.g. -- INSERT --
+	showmode = false,
 	enable_mouse = true,
 	transparency = false,
-	global_statusline = true,
+	global_statusline = false,
 	virtual_text = true,
 	relative_number = false,
 	indent = 4,
@@ -15,6 +15,4 @@ vim.g.CONFIG = {
 	},
 }
 
--- require("utils")
 require("core")
--- require("ui")

@@ -3,18 +3,10 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Set colorscheme
 autocmd("VimEnter", {
 	callback = function()
-		local adm = require("auto-dark-mode")
-		adm.setup({
-			update_interval = 1000,
-			set_dark_mode = function()
-				vim.api.nvim_set_option_value("background", "dark", {})
-				vim.cmd("colorscheme " .. vim.g.CONFIG.colorscheme.dark)
-			end,
-			set_light_mode = function()
-				vim.api.nvim_set_option_value("background", "light", {})
-				vim.cmd("colorscheme " .. vim.g.CONFIG.colorscheme.light)
-			end,
-		})
+		local colorscheme = require("core.colorscheme")
+
+		colorscheme.apply(colorscheme.get_initial())
+		colorscheme.start_dbus_listener()
 	end,
 })
 

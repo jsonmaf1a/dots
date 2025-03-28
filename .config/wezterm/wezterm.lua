@@ -9,7 +9,8 @@ local function get_theme(appearance)
 	if appearance:find("Dark") then
 		return {
 			-- theme = "OneDark (base16)",
-			theme = "tokyonight_night",
+			theme = "Catppuccin Mocha",
+			-- theme = "tokyonight_night",
 			cursor = "Bibata-Modern-Classic",
 		}
 	else
