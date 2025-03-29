@@ -85,6 +85,21 @@ return {
 				symbol = "+",
 				highlight = "NeoTreeAdded",
 			},
+
+			diagnostics = {
+				symbols = {
+					hint = " ",
+					info = " ",
+					warn = " ",
+					error = " ",
+				},
+				highlights = {
+					hint = "DiagnosticSignHint",
+					info = "DiagnosticSignInfo",
+					warn = "DiagnosticSignWarn",
+					error = "DiagnosticSignError",
+				},
+			},
 		},
 		window = {
 			position = "left",
