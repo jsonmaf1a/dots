@@ -18,12 +18,12 @@ return {
 		cmp.setup({
 			window = {
 				completion = {
-					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
+					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
 					border = vim.g.CONFIG.border,
 				},
 				documentation = {
 					border = vim.g.CONFIG.border,
-					winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
+					winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None",
 					max_width = 60,
 				},
 			},
@@ -44,7 +44,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp_signature_help" },
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
+				{ name = "luasnip" },
 				{ name = "spell", keyword_length = 3, priority = 5, keyword_pattern = [[\w\+]] },
 				{ name = "nvim_lua", priority = 5 },
 				{ name = "calc", priority = 3 },
@@ -63,10 +63,10 @@ return {
 				}),
 			},
 			matching = {
-				disallow_fuzzy_matching = true,
-				disallow_fullfuzzy_matching = true,
-				disallow_partial_fuzzy_matching = true,
-				disallow_partial_matching = true,
+				disallow_fuzzy_matching = false,
+				disallow_fullfuzzy_matching = false,
+				disallow_partial_fuzzy_matching = false,
+				disallow_partial_matching = false,
 				disallow_prefix_unmatching = false,
 			},
 		})

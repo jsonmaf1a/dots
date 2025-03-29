@@ -1,9 +1,6 @@
 local common = require("core.lsp.common")
 
 vim.lsp.config.clangd = {
-	on_attach = common.on_attach,
-	capabilities = common.capabilities,
-	handlers = common.handlers,
 	cmd = {
 		"clangd",
 		"--completion-style=detailed",
@@ -13,7 +10,7 @@ vim.lsp.config.clangd = {
 		"--query-driver=/usr/bin/g++", -- Use GCC 14's standard library
 		"--header-insertion=never",
 	},
-	filetypes = { "c", "cc", "cpp", "h", "hpp", "ixx", "cppm", "inl" },
+	filetypes = { "c", "cc", "cpp", "h", "hpp", "ixx", "cppm", "inl", "objc", "objcpp", "cuda", "proto" },
 	root_markers = { ".clang-format", ".git", "compile_commands.json", "CMakeLists.txt" },
 }
 

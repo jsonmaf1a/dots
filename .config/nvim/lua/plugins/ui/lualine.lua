@@ -1,10 +1,5 @@
 local utils = require("utils")
 local colors = require("utils.assets").colors
-local separators = require("utils.assets").separators
-
-local Job = require("plenary.job")
-
-local bg = "NONE"
 
 local conditions = {
 	buffer_not_empty = function()
@@ -33,10 +28,8 @@ local conditions = {
 -- Components
 local mode = {
 	"mode",
-	padding = { left = 2, right = 2 },
-	separator = { left = "", right = separators.rounded.right },
-	icon = "",
-	color = { gui = "italic" },
+	-- padding = { left = 2, right = 0 },
+	color = { bg = colors.bg, fg = colors.fg },
 }
 
 local diagnostics = {
@@ -44,8 +37,8 @@ local diagnostics = {
 	sources = { "nvim_diagnostic" },
 	symbols = { error = " ", warn = " ", hint = " ", info = " " },
 	sections = { "error", "warn", "info", "hint" },
-	padding = { left = 2, right = 1 },
-	separator = { right = "", left = "" },
+	padding = { left = 0, right = 0 },
+	-- separator = { right = "", left = "" },
 	diagnostics_color = {
 		error = "DiagnosticError",
 		warn = "DiagnosticWarn",
@@ -55,31 +48,46 @@ local diagnostics = {
 	colored = true, -- Displays diagnostics status in color if set to true.
 	update_in_insert = true, -- Update diagnostics in insert mode.
 	always_visible = false, -- Show diagnostics even if there are none.
+	color = { italic = false, bold = false },
 }
 
 local filename = {
 	function()
 		local name = vim.fn.expand("%:t")
-		return CURRENT_FILE_ICON .. " " .. utils.truncate(name, 40)
+		-- return CURRENT_FILE_ICON .. " " .. utils.truncate(name, 40)
+		return utils.truncate(name, 40)
 	end,
 	cond = conditions.buffer_not_empty,
-	separator = { left = separators.rounded.left },
+	-- separator = { left = separators.rounded.left },
 	padding = { left = 1, right = 1 },
-	color = { bg = colors.red, fg = colors.bg, gui = "italic" },
+	color = { bg = colors.bg, fg = colors.fg },
 }
 
 local cwd = {
 	utils.get_cwd,
-	icon = "󰉖",
-	separator = { left = separators.rounded.left },
+	-- icon = "󰉖",
+	-- separator = { left = separators.rounded.left },
 	padding = { left = 1, right = 1 },
-	color = { bg = colors.yellow, fg = colors.bg, gui = "italic" },
+	color = { bg = colors.bg, fg = colors.fg },
+}
+
+local file = {
+	function()
+		local name = vim.fn.expand("%:t")
+		-- return  .. " " .. utils.truncate(name, 40)
+		return CURRENT_FILE_ICON .. " " .. utils.get_cwd() .. "/" .. utils.truncate(name, 40)
+	end,
+	cond = conditions.buffer_not_empty,
+	-- icon = "󰉖",
+	-- separator = { left = separators.rounded.left },
+	padding = { left = 1, right = 1 },
+	color = { bg = colors.bg, fg = colors.fg },
 }
 
 local branch = {
 	"branch",
 	icon = "",
-	color = { bg = bg, fg = colors.accent, gui = "italic" },
+	color = { bg = colors.bg, fg = colors.ltblue },
 	padding = { left = 1, right = 1 },
 }
 
@@ -91,7 +99,7 @@ local diff = {
 		modified = { fg = colors.magenta },
 		removed = { fg = colors.red },
 	},
-	color = { bg = bg, gui = "italic" },
+	color = { bg = colors.bg },
 }
 
 -- local wakatime_result = ""
@@ -125,24 +133,12 @@ local config = {
 		section_separators = { left = "", right = "" },
 		theme = {
 			normal = {
-				a = { fg = colors.bg, bg = colors.accent },
-				c = { bg = bg },
-			},
-			insert = {
-				a = { fg = colors.bg, bg = colors.red },
-				c = { bg = bg },
-			},
-			visual = {
-				a = { fg = colors.bg, bg = colors.blue },
-				c = { bg = bg },
-			},
-			replace = {
-				a = { fg = colors.bg, bg = colors.red },
-				c = { bg = bg },
-			},
-			command = {
-				a = { fg = colors.bg, bg = colors.yellow },
-				c = { bg = bg },
+				a = { fg = colors.fg, bg = colors.bg },
+				b = { fg = colors.fg, bg = colors.bg },
+				c = { fg = colors.fg, bg = colors.bg },
+				x = { fg = colors.fg, bg = colors.bg },
+				y = { fg = colors.fg, bg = colors.bg },
+				z = { fg = colors.fg, bg = colors.bg },
 			},
 		},
 		disabled_filetypes = {
@@ -178,6 +174,13 @@ local config = {
 	},
 	sections = {
 		lualine_a = {
+			{
+				function()
+					return "▊"
+				end,
+				color = { fg = colors.ltblue },
+				padding = { left = 0, right = 1 },
+			},
 			mode,
 		},
 		lualine_b = {
@@ -187,13 +190,15 @@ local config = {
 			-- wakatime,
 		},
 		lualine_x = {
-			branch,
 			diff,
+			branch,
 		},
-		lualine_y = {},
+		lualine_y = {
+			file,
+		},
 		lualine_z = {
-			filename,
-			cwd,
+			"location",
+			"progress",
 		},
 	},
 }

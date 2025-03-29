@@ -10,7 +10,7 @@ M.set_keymap = function(mode, keys, action, desc)
 end
 
 M.get_cwd = function()
-	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " "
+	return vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
 end
 
 M.get_lsp = function()

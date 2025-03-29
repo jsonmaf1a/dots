@@ -1,14 +1,12 @@
-local common = require("core.lsp.common")
-
 vim.lsp.config.luals = {
-	on_attach = common.on_attach,
-	capabilities = common.capabilities,
-	handlers = common.handlers,
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
 	root_markers = { ".luarc.json", ".luarc.jsonc" },
 	settings = {
 		Lua = {
+			runtime = {
+				version = "LuaJIT",
+			},
 			completion = {
 				callSnippet = "Both",
 			},
@@ -17,7 +15,7 @@ vim.lsp.config.luals = {
 			},
 			workspace = {
 				library = {
-					vim.fn.expand("$VIMRUNTIME/lua"),
+					vim.env.VIMRUNTIME,
 					vim.fn.stdpath("config") .. "/lua",
 				},
 			},

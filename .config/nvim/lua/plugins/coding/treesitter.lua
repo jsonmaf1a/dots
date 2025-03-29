@@ -4,7 +4,6 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		build = ":TSUpdate",
 		dependencies = {
-			"catppuccin",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 			"nvim-treesitter/nvim-treesitter-context",
 			"HiPhish/rainbow-delimiters.nvim",
@@ -92,9 +91,6 @@ return {
 				-- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
 				separator = "",
 				zindex = 20, -- The Z-index of the context window
-				on_attach = function()
-					vim.api.nvim_set_hl(0, "TreesitterContext", { bg = "NONE" })
-				end, -- (fun(buf: integer): boolean) return false to disable attaching
 			})
 		end,
 	},

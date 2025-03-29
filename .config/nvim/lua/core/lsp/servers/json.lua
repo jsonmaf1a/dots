@@ -1,9 +1,6 @@
-local common = require("core.lsp.common")
-
-vim.lsp.config.jsonls = {
-	on_attach = common.on_attach,
-	capabilities = common.capabilities,
-	handlers = common.handlers,
+vim.lsp.config.json = {
+	cmd = { "vscode-json-language-server", "--stdio" },
+	init_options = { provideFormatter = true },
 	filetypes = { "json", "jsonc" },
 	settings = {
 		json = {
@@ -57,4 +54,4 @@ vim.lsp.config.jsonls = {
 	},
 }
 
-vim.lsp.enable("jsonls")
+vim.lsp.enable("json")

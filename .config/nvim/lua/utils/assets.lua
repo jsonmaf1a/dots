@@ -1,7 +1,14 @@
-local M = {}
+local catppuccin_ok, catppuccin = pcall(require, "catppuccin.palettes")
+if not catppuccin_ok then
+	return
+end
 
+local M = {}
+local catppuccin = catppuccin.get_palette()
+
+-- TODO: replace with catppuccin colors
 M.colors = {
-	bg = "#282C33",
+	bg = "#181823",
 	fg = "#ABB2BF",
 	gray = "#ABB2BF",
 	white = "#ffffff",

@@ -48,6 +48,8 @@ function M.apply(mode)
 		vim.g.current_colorscheme = theme
 		vim.cmd("colorscheme " .. theme)
 	end
+
+	require("core.ui.highlights").load()
 end
 
 function M.start_dbus_listener()

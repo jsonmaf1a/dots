@@ -167,7 +167,7 @@ set_keymap("n", "<leader>cT", "<cmd>TodoTelescope<cr>", "Todo telescope")
 set_keymap("n", "<leader>xt", "<cmd>TodoTrouble<cr>", "Todo trouble")
 
 -- File explorer
-set_keymap("n", "<leader>e", "<cmd>Neotree reveal_force_cwd filesystem toggle float<CR>", "Explorer")
+set_keymap("n", "<leader>e", "<cmd>Neotree reveal_force_cwd filesystem toggle<CR>", "Explorer")
 
 -- Debug
 set_keymap("n", "<leader>dc", dap.continue, "Continue")

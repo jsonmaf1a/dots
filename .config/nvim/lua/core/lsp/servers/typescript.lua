@@ -1,11 +1,38 @@
 local common = require("core.lsp.common")
 
+vim.lsp.config.biome = {
+	filetypes = {
+		"astro",
+		"css",
+		"graphql",
+		"javascript",
+		"javascriptreact",
+		"json",
+		"jsonc",
+		"svelte",
+		"typescript",
+		"typescript.tsx",
+		"typescriptreact",
+		"vue",
+	},
+	cmd = { "biome", "lsp-proxy" },
+	root_markers = { "biome.json", "biome.jsonc" },
+}
+vim.lsp.enable("biome")
+
 require("typescript-tools").setup({
 	on_attach = common.on_attach,
 	capabilities = common.capabilities,
 	handlers = common.handlers,
-	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact", "svelte", "astro" },
+	init_options = { hostInfo = "neovim" },
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+	},
 	root_markers = { "package.json", "node_modules", "biome.json", "tsconfig.json", "vite.config.ts", "vite.config.js" },
 	settings = {
 		-- Performance settings
@@ -38,9 +65,7 @@ require("typescript-tools").setup({
 			indentSwitchCase = true,
 		},
 
-		-- File preferences (combining your inlay hints with default preferences)
 		tsserver_file_preferences = {
-			-- Your current inlay hint settings
 			includeInlayParameterNameHints = "all",
 			includeInlayParameterNameHintsWhenArgumentMatchesName = true,
 			includeInlayFunctionParameterTypeHints = true,
@@ -50,7 +75,6 @@ require("typescript-tools").setup({
 			includeInlayFunctionLikeReturnTypeHints = false,
 			includeInlayEnumMemberValueHints = true,
 
-			-- Important default preferences
 			quotePreference = "auto",
 			importModuleSpecifierEnding = "auto",
 			jsxAttributeCompletionStyle = "auto",
@@ -70,11 +94,10 @@ require("typescript-tools").setup({
 			disableLineTextInReferences = true,
 		},
 
-		-- Feature settings
 		expose_as_code_action = "all",
 		include_completions_with_insert_text = true,
 		complete_function_calls = false,
-		code_lens = "implementations_only",
+		code_lens = "all",
 		jsx_close_tag = {
 			enable = false,
 			filetypes = { "javascriptreact", "typescriptreact" },
