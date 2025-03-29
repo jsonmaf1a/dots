@@ -14,11 +14,6 @@ local signs = {
 	},
 	DapLogPoint = { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "DapLogPoint" },
 	DapStopped = { text = "➜", texthl = "DapStopped", linehl = "DapStoppedLine", numhl = "DapStopped" },
-	-- -- -- -- --
-	DiagnosticSignError = { text = " ", texthl = "DiagnosticError" },
-	DiagnosticSignWarn = { text = " ", texthl = "DiagnosticWarn" },
-	DiagnosticSignInfo = { text = " ", texthl = "DiagnosticInfo" },
-	DiagnosticSignHint = { text = " ", texthl = "DiagnosticHint" },
 }
 
 define_signs(signs)
