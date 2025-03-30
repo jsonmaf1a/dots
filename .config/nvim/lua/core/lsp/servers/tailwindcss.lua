@@ -65,7 +65,7 @@ vim.lsp.config.tailwindcss = {
 		if client.server_capabilities.colorProvider then
 			require("colorizer").attach_to_buffer(
 				bufnr,
-				{ mode = "background", css = true, names = false, tailwind = false }
+				{ mode = "background", css = true, names = true, tailwind = true }
 			)
 		end
 	end,

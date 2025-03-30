@@ -12,7 +12,7 @@ local conform = require("conform")
 local lint = require("lint")
 
 -- Clear search with <esc>
-set_keymap({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", "Escape and clear hlsearch")
+set_keymap({ "i", "n" }, "<esc>", "<cmd>Fidget clear<cr><cmd>noh<cr><esc>", "Escape and clear hlsearch")
 
 -- Navigation in insert mode
 set_keymap("i", "<A-k>", "<Up>", "Up")
@@ -65,6 +65,9 @@ set_keymap("n", "<leader>cm", "<cmd>TSToolsAddMissingImports<CR>", "Add missing 
 set_keymap("n", "<leader>/", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", "Browse files")
 set_keymap("n", "<leader><Space>", telescope.resume, "Resume last search")
 set_keymap("n", "<leader>F", telescope.live_grep, "Live grep")
+-- set_keymap("n", "<leader>F", function()
+-- 	fzf.files()
+-- end, "Live grep")
 set_keymap("n", "<leader>fl", telescope.live_grep, "Live grep")
 set_keymap("n", "<leader>ff", telescope.find_files, "Find files")
 set_keymap("n", "<leader>fb", telescope.buffers, "Buffers")

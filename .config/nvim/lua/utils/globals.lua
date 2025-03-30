@@ -1,6 +1,7 @@
-table.unpack = table.unpack or unpack -- 5.1 compatability
-
-HOME = vim.fn.expand("~")
+vim.g.env = {
+	XDG_CACHE_HOME = os.getenv("XDG_CACHE_HOME"),
+	HOME = vim.uv.os_homedir(),
+}
 
 CURRENT_FILE_ICON = nil
 

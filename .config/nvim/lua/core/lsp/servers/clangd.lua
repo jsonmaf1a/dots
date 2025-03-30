@@ -1,5 +1,3 @@
-local common = require("core.lsp.common")
-
 vim.lsp.config.clangd = {
 	cmd = {
 		"clangd",

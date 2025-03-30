@@ -1,4 +1,4 @@
-vim.lsp.config.luals = {
+vim.lsp.config.lua = {
 	cmd = { "lua-language-server" },
 	filetypes = { "lua" },
 	root_markers = { ".luarc.json", ".luarc.jsonc" },
@@ -14,13 +14,15 @@ vim.lsp.config.luals = {
 				globals = { "vim" },
 			},
 			workspace = {
+				checkThirdParty = false,
 				library = {
-					vim.env.VIMRUNTIME,
+					-- vim.env.VIMRUNTIME,
 					vim.fn.stdpath("config") .. "/lua",
+					"${3rd}/luv/library",
 				},
 			},
 		},
 	},
 }
 
-vim.lsp.enable("luals")
+vim.lsp.enable("lua")
