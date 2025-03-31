@@ -15,7 +15,7 @@ local config = {
 dap.adapters.firefox = {
 	type = "executable",
 	command = "node",
-	args = { vim.g.env.HOME .. "/code/debug/vscode-firefox-debug/dist/adapter.bundle.js" },
+	args = { vim.env.HOME .. "/code/debug/vscode-firefox-debug/dist/adapter.bundle.js" },
 }
 
 for _, lang in ipairs(config.langs) do

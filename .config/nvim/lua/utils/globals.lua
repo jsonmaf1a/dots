@@ -1,9 +1,4 @@
-vim.g.env = {
-	XDG_CACHE_HOME = os.getenv("XDG_CACHE_HOME"),
-	HOME = vim.uv.os_homedir(),
-}
-
-CURRENT_FILE_ICON = nil
+CURRENT_FILE_ICON = ""
 
 P = function(v)
 	print(vim.print(v))

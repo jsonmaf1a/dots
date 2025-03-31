@@ -39,6 +39,7 @@ alias ":wqa" = exit
 
 alias nvchad = with-env {NVIM_APPNAME: "nvchad"} { nvim }
 alias astronvim = with-env {NVIM_APPNAME: "astronvim"} { nvim }
+alias nvim10 = with-env {NVIM_APPNAME: "nvim10"} { ~/.local/neovim-0.10.4/usr/bin/nvim }
 
 alias xgnome = with-env {XINITRC: "~/xsessions/gnome"} { startx }
 alias xplasma = with-env {XINITRC: "~/xsessions/plasma"} { startx }

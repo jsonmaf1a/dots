@@ -5,7 +5,7 @@ vim.lsp.config.clangd = {
 		"--background-index=false",
 		"--experimental-modules-support",
 		"--clang-tidy",
-		"--query-driver=/usr/bin/g++", -- Use GCC 14's standard library
+		"--query-driver=/usr/bin/g++",
 		"--header-insertion=never",
 	},
 	filetypes = { "c", "cc", "cpp", "h", "hpp", "ixx", "cppm", "inl", "objc", "objcpp", "cuda", "proto" },

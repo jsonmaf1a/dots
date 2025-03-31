@@ -9,7 +9,6 @@ vim.g.CONFIG = {
 	hide_cmdline = false,
 	border = "single",
 	colorscheme = {
-		-- dark = "tokyonight-night",
 		dark = "catppuccin-mocha",
 		light = "catppuccin-latte",
 	},

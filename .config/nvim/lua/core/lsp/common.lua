@@ -20,6 +20,7 @@ M.configure = function()
 	vim.lsp.config("*", {
 		on_attach = M.on_attach,
 		capabilities = M.capabilities,
+		handlers = vim.lsp.handlers,
 	})
 end
 

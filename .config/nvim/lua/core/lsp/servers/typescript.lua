@@ -18,8 +18,8 @@ vim.lsp.config.biome = {
 }
 vim.lsp.enable("biome")
 
-local tstools_ok, tstools = pcall(require, "typescript-tools")
-if tstools_ok then
+local ok, tstools = pcall(require, "typescript-tools")
+if ok then
 	local common = require("core.lsp.common")
 
 	tstools.setup({

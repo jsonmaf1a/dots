@@ -1,8 +1,10 @@
 local JDTLS_JVM_ARGS = os.getenv("JDTLS_JVM_ARGS")
 
-local handlers = vim.lsp.handlers
+local common = require("core.lsp.common")
+local handlers = common.handlers
+
 local function get_cache_dir()
-	return vim.g.env.XDG_CACHE_HOME and vim.g.env.XDG_CACHE_HOME or vim.g.env.HOME .. "/.cache"
+	return vim.env.XDG_CACHE_HOME and vim.env.XDG_CACHE_HOME or vim.env.HOME .. "/.cache"
 end
 
 local function get_jdtls_cache_dir()
