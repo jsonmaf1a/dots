@@ -1,5 +1,5 @@
 return {
-	"folke/neoconf.nvim",
-	cmd = "Neoconf",
-	opts = {},
+    "folke/neoconf.nvim",
+    cmd = "Neoconf",
+    opts = {},
 }

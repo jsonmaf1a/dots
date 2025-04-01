@@ -1,5 +1,5 @@
 return {
-	"echasnovski/mini.bufremove",
-	version = false,
-	opts = {},
+    "echasnovski/mini.bufremove",
+    version = false,
+    opts = {},
 }

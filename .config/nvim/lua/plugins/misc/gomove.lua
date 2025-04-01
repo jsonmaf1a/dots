@@ -1,3 +1,3 @@
 return {
-	"booperlv/nvim-gomove",
+    "booperlv/nvim-gomove",
 }

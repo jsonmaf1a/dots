@@ -1,40 +1,64 @@
 local M = {}
+
 local colors = require("utils.assets").colors
-local catppuccin = require("catppuccin.palettes").get_palette()
-local bg = vim.g.CONFIG.transparency and "NONE" or colors.bg
+local bg = vim.g.CONFIG.transparency and colors.transparent or colors.bg
 
 local function define_highlights(highlights)
-	for name, opts in pairs(highlights) do
-		vim.api.nvim_set_hl(0, name, opts)
-	end
+    for name, opts in pairs(highlights) do
+        vim.api.nvim_set_hl(0, name, opts)
+    end
 end
 
 local neovim = {
-	FloatBorder = { bg = bg, fg = bg },
-	DiagnosticError = { bg = bg, fg = catppuccin.red, italic = false, bold = false },
-	DiagnosticWarn = { bg = bg, fg = catppuccin.yellow, italic = false, bold = false },
-	DiagnosticInfo = { bg = bg, fg = catppuccin.sapphire, italic = false, bold = false },
-	DiagnosticHint = { bg = bg, fg = catppuccin.teal, italic = false, bold = false },
+    FloatBorder = { bg = bg, fg = bg },
+    DiagnosticError = {
+        bg = colors.transparent,
+        fg = colors.red,
+        italic = false,
+        bold = false,
+    },
+    DiagnosticWarn = {
+        bg = colors.transparent,
+        fg = colors.yellow,
+        italic = false,
+        bold = false,
+    },
+    DiagnosticInfo = {
+        bg = colors.transparent,
+        fg = colors.sapphire,
+        italic = false,
+        bold = false,
+    },
+    DiagnosticHint = {
+        bg = colors.transparent,
+        fg = colors.teal,
+        italic = false,
+        bold = false,
+    },
 }
 
 local telescope = {
-	TelescopeMatching = { fg = catppuccin.flamingo },
-	TelescopeSelection = { fg = catppuccin.text, bg = catppuccin.surface0, bold = true },
-	TelescopePromptPrefix = { bg = catppuccin.surface0 },
-	TelescopePromptNormal = { bg = catppuccin.surface0 },
-	TelescopeResultsNormal = { bg = catppuccin.mantle },
-	TelescopePreviewNormal = { bg = catppuccin.mantle },
-	TelescopePromptBorder = { bg = colors.surface0, fg = catppuccin.surface0 },
-	TelescopeResultsBorder = { bg = catppuccin.mantle, fg = catppuccin.mantle },
-	TelescopePreviewBorder = { bg = catppuccin.mantle, fg = catppuccin.mantle },
-	TelescopePromptTitle = { bg = catppuccin.pink, fg = catppuccin.mantle },
-	TelescopeResultsTitle = { fg = catppuccin.mantle },
-	TelescopePreviewTitle = { bg = catppuccin.green, fg = catppuccin.mantle },
+    TelescopeMatching = { fg = colors.lavender },
+    TelescopeSelection = {
+        fg = colors.text,
+        bg = colors.gray,
+        bold = true,
+    },
+    TelescopePromptPrefix = { bg = colors.gray },
+    TelescopePromptNormal = { bg = colors.gray },
+    TelescopeResultsNormal = { bg = colors.bg },
+    TelescopePreviewNormal = { bg = colors.bg },
+    TelescopePromptBorder = { bg = colors.gray, fg = colors.gray },
+    TelescopeResultsBorder = { bg = colors.bg, fg = colors.bg },
+    TelescopePreviewBorder = { bg = colors.bg, fg = colors.bg },
+    TelescopePromptTitle = { bg = colors.pink, fg = colors.bg },
+    TelescopeResultsTitle = { fg = colors.bg },
+    TelescopePreviewTitle = { bg = colors.green, fg = colors.bg },
 }
 
 M.load = function()
-	define_highlights(neovim)
-	define_highlights(telescope)
+    define_highlights(neovim)
+    define_highlights(telescope)
 end
 
 return M
