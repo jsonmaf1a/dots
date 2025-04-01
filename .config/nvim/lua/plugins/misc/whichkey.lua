@@ -23,7 +23,7 @@ return {
             { "<leader>x", group = "diagnostics" },
             { "<leader>b", group = "buffers" },
             { "<leader>g", group = "git" },
-            { "<leader>M", group = "misc" },
+            { "<leader>m", group = "misc" },
         },
         win = {
             title = false,

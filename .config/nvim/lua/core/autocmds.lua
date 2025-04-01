@@ -73,13 +73,10 @@ autocmd(
 )
 
 -- Show `` in specific files
-autocmd(
-    { "BufRead", "BufNewFile" },
-    {
-        pattern = { "*.txt", "*.md", "*.json" },
-        command = "setlocal conceallevel=0",
-    }
-)
+autocmd({ "BufRead", "BufNewFile" }, {
+    pattern = { "*.txt", "*.md", "*.json" },
+    command = "setlocal conceallevel=0",
+})
 
 -- Enable spell checking for certain file types
 autocmd(
@@ -104,13 +101,6 @@ autocmd("BufEnter", {
                 { default = true }
             )
         end
-    end,
-})
-
--- Lint
-autocmd({ "BufWritePost" }, {
-    callback = function()
-        require("lint").try_lint()
     end,
 })
 

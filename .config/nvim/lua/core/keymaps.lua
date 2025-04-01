@@ -9,7 +9,6 @@ local ufo = require("ufo")
 local splits = require("smart-splits")
 local ls = require("luasnip")
 local conform = require("conform")
-local lint = require("lint")
 local diagnostic_jump = require("core.lsp.diagnostic").diagnostic_jump
 
 -- Clear search with <esc>
@@ -309,11 +308,6 @@ set_keymap("v", "<leader>f", function()
         timeout_ms = 500,
     })
 end, "Format selection")
-
--- Linting
-set_keymap("n", "<leader>xl", function()
-    lint.try_lint()
-end, "Lint file")
 
 set_keymap(
     "i",
