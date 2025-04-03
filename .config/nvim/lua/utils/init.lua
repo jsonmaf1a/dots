@@ -1,12 +1,28 @@
 local M = {}
 
+--- @param mode table | string
+--- @param keys string
+--- @param action function | string
+--- @param desc string | nil
+--- @return nil
 M.set_keymap = function(mode, keys, action, desc)
-    vim.keymap.set(mode, keys, action, {
-        silent = true,
-        noremap = true,
-        nowait = false,
-        desc = desc,
-    })
+    if type(mode) == "string" then
+        mode = { mode }
+    end
+
+    for _, m in ipairs(mode) do
+        pcall(function()
+            vim.api.nvim_del_keymap(m, keys)
+        end)
+
+        vim.keymap.set(m, keys, action, {
+            silent = true,
+            noremap = true,
+            nowait = false,
+            unique = true,
+            desc = desc,
+        })
+    end
 end
 
 M.get_cwd = function()
@@ -160,7 +176,6 @@ function M.create_floating_window(opts)
         height = height,
         col = col,
         row = row,
-        border = "single",
         style = "minimal",
     }
 

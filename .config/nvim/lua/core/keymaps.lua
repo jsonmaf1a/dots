@@ -74,7 +74,7 @@ end, "Go to previous diagnostic")
 -- set_keymap("n", "[d", ":lua vim.diagnostic.jump({ count = -1, float = true })<CR>", "Go to previous diagnostic")
 
 set_keymap("n", "<leader>cq", ":LspRestart<CR>", "Restart LSP")
-set_keymap("n", "<leader>cX", vim.diagnostic.open_float, "Line diagnostics")
+-- set_keymap("n", "<leader>cX", vim.diagnostic.open_float, "Line diagnostics")
 set_keymap("n", "<leader>cn", vim.lsp.buf.rename, "Smart rename")
 set_keymap("n", "gd", picker.lsp_definitions, "Definitions")
 set_keymap("n", "gi", picker.lsp_implementations, "Implementations")
