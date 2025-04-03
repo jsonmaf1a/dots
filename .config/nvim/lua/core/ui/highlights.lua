@@ -1,7 +1,7 @@
 local M = {}
 
 local colors = require("utils.assets").colors
-local bg = vim.g.CONFIG.transparency and colors.transparent or colors.bg
+local bg = vim.g.CONFIG.transparency and colors.transparent or colors.mantle
 
 local function define_highlights(highlights)
     for name, opts in pairs(highlights) do
@@ -38,22 +38,24 @@ local neovim = {
 }
 
 local telescope = {
-    TelescopeMatching = { fg = colors.lavender },
+    TelescopeMatching = { bg = colors.sapphire, fg = colors.base },
+
     TelescopeSelection = {
-        fg = colors.text,
-        bg = colors.gray,
+        fg = colors.base,
+        bg = colors.lavender,
         bold = true,
     },
-    TelescopePromptPrefix = { bg = colors.gray },
-    TelescopePromptNormal = { bg = colors.gray },
-    TelescopeResultsNormal = { bg = colors.bg },
-    TelescopePreviewNormal = { bg = colors.bg },
-    TelescopePromptBorder = { bg = colors.gray, fg = colors.gray },
-    TelescopeResultsBorder = { bg = colors.bg, fg = colors.bg },
-    TelescopePreviewBorder = { bg = colors.bg, fg = colors.bg },
-    TelescopePromptTitle = { bg = colors.pink, fg = colors.bg },
-    TelescopeResultsTitle = { fg = colors.bg },
-    TelescopePreviewTitle = { bg = colors.green, fg = colors.bg },
+    TelescopePromptPrefix = { bg = colors.surface0 },
+    TelescopePromptNormal = { bg = colors.surface0 },
+
+    TelescopeResultsNormal = { bg = colors.mantle },
+    TelescopePreviewNormal = { bg = colors.mantle },
+
+    TelescopeResultsBorder = { bg = colors.mantle, fg = colors.lavender },
+    TelescopePreviewBorder = { bg = colors.mantle, fg = colors.lavender },
+    TelescopePromptBorder = { bg = colors.surface0, fg = colors.lavender },
+    TelescopePromptTitle = { bg = colors.sapphire, fg = colors.lavender },
+    TelescopeResultsTitle = { fg = colors.lavender },
 }
 
 M.load = function()

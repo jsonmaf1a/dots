@@ -1,3 +1,5 @@
+local diagnostic_signs = require("core.lsp.diagnostic").signs
+
 return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -46,7 +48,8 @@ return {
         filesystem = {
             bind_to_cwd = false,
             follow_current_file = {
-                enabled = true,
+                enabled = false,
+                leave_dirs_open = false,
                 update_root = true,
                 update_cwd = true,
                 ignore_list = {
@@ -88,16 +91,16 @@ return {
 
             diagnostics = {
                 symbols = {
-                    hint = " ",
-                    info = " ",
-                    warn = " ",
-                    error = " ",
+                    hint = diagnostic_signs[vim.diagnostic.severity.HINT].text,
+                    info = diagnostic_signs[vim.diagnostic.severity.INFO].text,
+                    warn = diagnostic_signs[vim.diagnostic.severity.WARN].text,
+                    error = diagnostic_signs[vim.diagnostic.severity.ERROR].text,
                 },
                 highlights = {
-                    hint = "DiagnosticSignHint",
-                    info = "DiagnosticSignInfo",
-                    warn = "DiagnosticSignWarn",
-                    error = "DiagnosticSignError",
+                    hint = diagnostic_signs[vim.diagnostic.severity.HINT].hl,
+                    info = diagnostic_signs[vim.diagnostic.severity.INFO].hl,
+                    warn = diagnostic_signs[vim.diagnostic.severity.WARN].hl,
+                    error = diagnostic_signs[vim.diagnostic.severity.ERROR].hl,
                 },
             },
         },

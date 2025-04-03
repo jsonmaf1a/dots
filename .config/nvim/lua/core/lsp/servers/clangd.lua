@@ -3,10 +3,8 @@ vim.lsp.config.clangd = {
         "clangd",
         "--completion-style=detailed",
         "--background-index=false",
-        "--experimental-modules-support",
         "--clang-tidy",
         "--query-driver=/usr/bin/g++",
-        "--header-insertion=never",
     },
     filetypes = {
         "c",

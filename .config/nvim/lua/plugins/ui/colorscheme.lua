@@ -15,15 +15,13 @@ return {
             dim_inactive = {
                 enabled = true,
                 shade = "dark",
-                percentage = 1.00,
+                percentage = 0.15,
             },
             integrations = {
                 cmp = true,
                 gitsigns = true,
-                nvimtree = true,
                 treesitter = true,
                 fidget = true,
-                mason = true,
                 neotree = true,
                 ufo = true,
                 lsp_trouble = true,
@@ -33,9 +31,6 @@ return {
                 illuminate = {
                     enabled = true,
                     lsp = true,
-                },
-                mini = {
-                    enabled = false,
                 },
                 native_lsp = {
                     enabled = true,

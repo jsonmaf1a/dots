@@ -48,6 +48,18 @@ return {
                     vim.b.miniindentscope_disable = true
                 end,
             })
+
+            vim.api.nvim_create_autocmd(
+                { "BufEnter", "BufWinEnter", "BufAdd", "WinEnter" },
+                {
+                    pattern = "*", -- We use "*" to match all buffers, but filter by buftype
+                    callback = function()
+                        if vim.bo.buftype == "terminal" then
+                            vim.b.miniindentscope_disable = true
+                        end
+                    end,
+                }
+            )
         end,
     },
 }

@@ -29,7 +29,7 @@ local conditions = {
 local mode = {
     "mode",
     -- padding = { left = 2, right = 0 },
-    color = { bg = colors.bg, fg = colors.fg },
+    color = { bg = colors.bg, fg = colors.text },
 }
 
 local diagnostics = {
@@ -59,7 +59,7 @@ local filename = {
     cond = conditions.buffer_not_empty,
     -- separator = { left = separators.rounded.left },
     padding = { left = 1, right = 1 },
-    color = { bg = colors.bg, fg = colors.fg },
+    color = { bg = colors.bg, fg = colors.text },
 }
 
 local cwd = {
@@ -67,7 +67,7 @@ local cwd = {
     -- icon = "󰉖",
     -- separator = { left = separators.rounded.left },
     padding = { left = 1, right = 1 },
-    color = { bg = colors.bg, fg = colors.fg },
+    color = { bg = colors.bg, fg = colors.text },
 }
 
 local file = {
@@ -84,13 +84,13 @@ local file = {
     -- icon = "󰉖",
     -- separator = { left = separators.rounded.left },
     padding = { left = 1, right = 1 },
-    color = { bg = colors.bg, fg = colors.fg },
+    color = { bg = colors.bg, fg = colors.text },
 }
 
 local branch = {
     "branch",
     icon = "",
-    color = { bg = colors.bg, fg = colors.ltblue },
+    color = { bg = colors.bg, fg = colors.lavender },
     padding = { left = 1, right = 1 },
 }
 
@@ -99,7 +99,7 @@ local diff = {
     symbols = { added = " ", modified = " ", removed = " " },
     diff_color = {
         added = { fg = colors.green },
-        modified = { fg = colors.magenta },
+        modified = { fg = colors.mauve },
         removed = { fg = colors.red },
     },
     color = { bg = colors.bg },
@@ -136,12 +136,12 @@ local config = {
         section_separators = { left = "", right = "" },
         theme = {
             normal = {
-                a = { fg = colors.fg, bg = colors.bg },
-                b = { fg = colors.fg, bg = colors.bg },
-                c = { fg = colors.fg, bg = colors.bg },
-                x = { fg = colors.fg, bg = colors.bg },
-                y = { fg = colors.fg, bg = colors.bg },
-                z = { fg = colors.fg, bg = colors.bg },
+                a = { fg = colors.text, bg = colors.bg },
+                b = { fg = colors.text, bg = colors.bg },
+                c = { fg = colors.text, bg = colors.bg },
+                x = { fg = colors.text, bg = colors.bg },
+                y = { fg = colors.text, bg = colors.bg },
+                z = { fg = colors.text, bg = colors.bg },
             },
         },
         disabled_filetypes = {
@@ -181,7 +181,7 @@ local config = {
                 function()
                     return "▊"
                 end,
-                color = { fg = colors.ltblue },
+                color = { fg = colors.lavender },
                 padding = { left = 0, right = 1 },
             },
             mode,
