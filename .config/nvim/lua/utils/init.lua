@@ -184,4 +184,32 @@ function M.create_floating_window(opts)
     return { buf = buf, win = win }
 end
 
+function M.hl_str(hl, str)
+    return "%#" .. hl .. "#" .. str .. "%*"
+end
+
+function M.get_current_mode_color()
+    local colors = require("utils.assets").colors
+
+    local mode = vim.api.nvim_get_mode().mode
+    if mode == "n" then
+        return colors.lavender
+    elseif mode == "i" then
+        return colors.mauve
+    elseif mode == "v" then
+        return colors.sky
+    elseif mode == "V" then
+        return colors.sapphire
+    elseif mode == "t" then
+        return colors.red
+    elseif mode == "s" then
+        return colors.teal
+    elseif mode == "R" then
+        return colors.flamingo
+    elseif mode == "c" then
+        return colors.yellow
+    end
+    return colors.text
+end
+
 return M

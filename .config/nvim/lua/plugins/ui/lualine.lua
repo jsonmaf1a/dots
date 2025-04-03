@@ -5,129 +5,102 @@ local conditions = {
     buffer_not_empty = function()
         return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
     end,
-    hide_in_width = function()
-        return vim.fn.winwidth(0) > 80
-    end,
-    check_git_workspace = function()
-        local filepath = vim.fn.expand("%:p:h")
-        local gitdir = vim.fn.finddir(".git", filepath .. ";")
-        return gitdir and #gitdir > 0 and #gitdir < #filepath
-    end,
-    lsp_not_empty = function()
-        local clients = vim.lsp.get_clients()
-        if next(clients) == nil then
-            return false
-        end
-        return true
-    end,
-    wakatime_loaded = function()
-        return vim.g["loaded_wakatime"] == 1
-    end,
 }
 
--- Components
-local mode = {
-    "mode",
-    -- padding = { left = 2, right = 0 },
-    color = { bg = colors.bg, fg = colors.text },
-}
-
-local diagnostics = {
-    "diagnostics",
-    sources = { "nvim_diagnostic" },
-    sections = { "error", "warn", "info", "hint" },
-    padding = { left = 0, right = 0 },
-    -- separator = { right = "", left = "" },
-    diagnostics_color = {
-        error = "DiagnosticError",
-        warn = "DiagnosticWarn",
-        info = "DiagnosticInfo",
-        hint = "DiagnosticHint",
+local components = {
+    mode = {
+        "mode",
+        color = { bg = colors.bg, fg = colors.text },
     },
-    colored = true, -- Displays diagnostics status in color if set to true.
-    update_in_insert = true, -- Update diagnostics in insert mode.
-    always_visible = false, -- Show diagnostics even if there are none.
-    color = { italic = false, bold = false },
-}
+    mode_prefix = {
+        function()
+            local color = utils.get_current_mode_color()
 
-local filename = {
-    function()
-        local name = vim.fn.expand("%:t")
-        -- return CURRENT_FILE_ICON .. " " .. utils.truncate(name, 40)
-        return utils.truncate(name, 40)
-    end,
-    cond = conditions.buffer_not_empty,
-    -- separator = { left = separators.rounded.left },
-    padding = { left = 1, right = 1 },
-    color = { bg = colors.bg, fg = colors.text },
-}
+            local hl = "LualineModePrefix"
+            vim.api.nvim_set_hl(0, hl, { fg = color, bg = colors.bg })
 
-local cwd = {
-    utils.get_cwd,
-    -- icon = "󰉖",
-    -- separator = { left = separators.rounded.left },
-    padding = { left = 1, right = 1 },
-    color = { bg = colors.bg, fg = colors.text },
-}
-
-local file = {
-    function()
-        local name = vim.fn.expand("%:t")
-        -- return  .. " " .. utils.truncate(name, 40)
-        return CURRENT_FILE_ICON
-            .. " "
-            .. utils.get_cwd()
-            .. "/"
-            .. utils.truncate(name, 40)
-    end,
-    cond = conditions.buffer_not_empty,
-    -- icon = "󰉖",
-    -- separator = { left = separators.rounded.left },
-    padding = { left = 1, right = 1 },
-    color = { bg = colors.bg, fg = colors.text },
-}
-
-local branch = {
-    "branch",
-    icon = "",
-    color = { bg = colors.bg, fg = colors.lavender },
-    padding = { left = 1, right = 1 },
-}
-
-local diff = {
-    "diff",
-    symbols = { added = " ", modified = " ", removed = " " },
-    diff_color = {
-        added = { fg = colors.green },
-        modified = { fg = colors.mauve },
-        removed = { fg = colors.red },
+            return utils.hl_str(hl, "▊")
+        end,
+        padding = { left = 0, right = 0 },
     },
-    color = { bg = colors.bg },
-}
+    diagnostics = {
+        "diagnostics",
+        sources = { "nvim_diagnostic" },
+        sections = { "error", "warn", "info", "hint" },
+        padding = { left = 0, right = 0 },
+        diagnostics_color = {
+            error = "DiagnosticError",
+            warn = "DiagnosticWarn",
+            info = "DiagnosticInfo",
+            hint = "DiagnosticHint",
+        },
+        colored = true, -- Displays diagnostics status in color if set to true.
+        update_in_insert = true, -- Update diagnostics in insert mode.
+        always_visible = false, -- Show diagnostics even if there are none.
+        color = { italic = false, bold = false },
+    },
+    progress = {
+        function()
+            local chars = {
+                "▔",
+                "🮂",
+                "🬂",
+                "🮃",
+                "▀",
+                "▄",
+                "▃",
+                "🬭",
+                "▂",
+                "▁",
+            }
 
--- local wakatime_result = ""
---
--- local function get_wakatime()
--- 	Job:new({
--- 		command = "wakatime",
--- 		args = { "--today" },
--- 		on_exit = function(job, return_val)
--- 			wakatime_result = table.concat(job:result(), " ") or ""
--- 		end,
--- 	}):start()
--- end
---
--- local wakatime_interval = 5
--- vim.loop.new_timer():start(0, wakatime_interval * 60 * 1000, vim.schedule_wrap(get_wakatime))
---
--- local wakatime = {
--- 	function()
--- 		return wakatime_result
--- 	end,
--- 	cond = conditions.wakatime_loaded,
--- 	icon = "󱑆",
--- 	color = { fg = colors.accent },
--- }
+            local cur_line = vim.api.nvim_win_get_cursor(0)[1]
+            local lines = vim.api.nvim_buf_line_count(0)
+
+            local i = math.floor((cur_line - 1) / lines * #chars) + 1
+            return string.rep(chars[i], 2)
+        end,
+        color = { bg = colors.bg, fg = colors.lavender },
+        padding = { left = 0, right = 0 },
+    },
+    filepath = {
+        function()
+            local name = vim.fn.expand("%:t")
+            local icon, color = require("nvim-web-devicons").get_icon_color(
+                vim.fn.expand("%:t"),
+                vim.fn.fnamemodify(vim.fn.expand("%"), ":e"),
+                { default = true }
+            )
+
+            local hl = "LualineFileIcon_" .. color:gsub("#", "")
+            vim.api.nvim_set_hl(0, hl, { fg = color, bg = colors.bg })
+
+            return utils.hl_str(hl, icon)
+                .. " "
+                .. utils.get_cwd()
+                .. "/"
+                .. utils.truncate(name, 40)
+        end,
+        cond = conditions.buffer_not_empty,
+        padding = { left = 1, right = 1 },
+    },
+    branch = {
+        "branch",
+        icon = "",
+        color = { bg = colors.bg, fg = colors.lavender },
+        padding = { left = 1, right = 1 },
+    },
+    diff = {
+        "diff",
+        symbols = { added = " ", modified = " ", removed = " " },
+        diff_color = {
+            added = { fg = colors.green },
+            modified = { fg = colors.mauve },
+            removed = { fg = colors.red },
+        },
+        color = { bg = colors.bg },
+    },
+}
 
 local config = {
     options = {
@@ -136,12 +109,12 @@ local config = {
         section_separators = { left = "", right = "" },
         theme = {
             normal = {
-                a = { fg = colors.text, bg = colors.bg },
-                b = { fg = colors.text, bg = colors.bg },
-                c = { fg = colors.text, bg = colors.bg },
-                x = { fg = colors.text, bg = colors.bg },
-                y = { fg = colors.text, bg = colors.bg },
-                z = { fg = colors.text, bg = colors.bg },
+                a = { bg = colors.bg, fg = colors.text },
+                b = { bg = colors.bg, fg = colors.text },
+                c = { bg = colors.bg, fg = colors.text },
+                x = { bg = colors.bg, fg = colors.text },
+                y = { bg = colors.bg, fg = colors.text },
+                z = { bg = colors.bg, fg = colors.text },
             },
         },
         disabled_filetypes = {
@@ -177,31 +150,23 @@ local config = {
     },
     sections = {
         lualine_a = {
-            {
-                function()
-                    return "▊"
-                end,
-                color = { fg = colors.lavender },
-                padding = { left = 0, right = 1 },
-            },
-            mode,
+            components.mode_prefix,
+            components.mode,
         },
         lualine_b = {
-            diagnostics,
+            components.diagnostics,
         },
-        lualine_c = {
-            -- wakatime,
-        },
+        lualine_c = {},
         lualine_x = {
-            diff,
-            branch,
+            components.diff,
+            components.branch,
         },
         lualine_y = {
-            file,
+            components.filepath,
         },
         lualine_z = {
             "location",
-            "progress",
+            components.progress,
         },
     },
 }
