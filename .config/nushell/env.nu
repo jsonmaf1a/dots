@@ -37,7 +37,6 @@ $env.BUN_INSTALL = ($env.HOME | path join ".bun")
 $env.PNPM_HOME = ($env.HOME | path join ".local" "share" "pnpm")
 $env.DOTNET_ROOT = ($env.HOME | path join ".dotnet")
 $env.XCURSOR_THEME = "Bibata-Modern-Ice"
-$env.QT_QPA_PLATFORM = "xcb"
 # $env.GTK_THEME = "Adwaita:dark"
 $env.XCURSOR_SIZE = "24"
 $env.STARSHIP_CONFIG = ($env.HOME | path join ".config" "starship" "starship.toml")
@@ -49,11 +48,14 @@ $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 $env.NVM_DIR = ($env.HOME | path join ".nvm")
 $env.XDG_DATA_HOME = ($env.HOME | path join ".local" "share")
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
-$env.ELECTRON_OZONE_PLATFORM_HINT = "wayland"
 $env.SCRIPTS = ($env.HOME | path join ".local" "bin")
 $env.ICONS = ($env.HOME | path join ".local" "share" "icons" "dots")
 $env.LC_ALL = "en_US.UTF-8"
 $env.LANG = "en_US.UTF-8"
+
+# Wayland
+$env.QT_QPA_PLATFORM = "wayland"
+
 
 path add /usr/local/go/bin
 path add ($env.HOME | path join ".cargo" "bin")

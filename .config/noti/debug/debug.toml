@@ -42,7 +42,7 @@ alignment = "left"
 wrap = false
 ellipsize = "end"
 
-[display.title]
+[display.summary]
 font_size = 20
 style = "bold"
 

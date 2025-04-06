@@ -46,7 +46,7 @@ margin = 0
 font_size = 16
 ellipsize = "end"
 
-[display.title]
+[display.summary]
 style = "bold"
 wrap = false
 
