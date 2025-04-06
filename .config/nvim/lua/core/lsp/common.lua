@@ -2,13 +2,17 @@ local M = {}
 
 local cmp_ok, cmp = pcall(require, "cmp_nvim_lsp")
 if cmp_ok then
-    local capabilities = cmp.default_capabilities()
-    capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true,
-    }
-    M.capabilities = capabilities
+    M.capabilities = cmp.default_capabilities()
 end
+
+M.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
+
+M.capabilities.textDocument.semanticTokens = {
+    multilineTokenSupport = true,
+}
 
 M.on_attach = function(client, _)
     if client.server_capabilities.inlayHintProvider then
@@ -20,7 +24,6 @@ M.configure = function()
     vim.lsp.config("*", {
         on_attach = M.on_attach,
         capabilities = M.capabilities,
-        handlers = vim.lsp.handlers,
     })
 end
 

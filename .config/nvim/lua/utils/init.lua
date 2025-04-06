@@ -33,9 +33,11 @@ M.get_lsp = function()
     local msg = "LSP"
     local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
     local clients = vim.lsp.get_clients()
+
     if next(clients) == nil then
         return msg
     end
+
     for _, client in ipairs(clients) do
         local filetypes = client.config.filetypes
         if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
@@ -43,19 +45,6 @@ M.get_lsp = function()
         end
     end
     return msg
-end
-
-M.merge_tables = function(t1, t2)
-    for k, v in pairs(t2) do
-        if type(v) == "table" then
-            if type(t1[k] or false) == "table" then
-                M.merge_tables(t1[k] or {}, t2[k] or {})
-            else
-                t1[k] = v
-            end
-        end
-    end
-    return t1
 end
 
 M.truncate = function(str, n)
@@ -111,12 +100,9 @@ M.search_ancestors = function(startpath, func)
     end
 end
 
-M.tbl_flatten = function(t)
-    return vim.iter(t):flatten(math.huge):totable()
-end
-
 M.root_pattern = function(...)
-    local patterns = M.tbl_flatten({ ... })
+    local patterns = vim.iter({ ... }):flatten(math.huge):totable()
+
     return function(startpath)
         startpath = M.strip_archive_subpath(startpath)
         for _, pattern in ipairs(patterns) do
@@ -148,15 +134,35 @@ end
 
 function M.freeze(tbl)
     return setmetatable(tbl, {
-        __newindex = function(_, key, value)
+        __newindex = function()
             error("Attempt to modify a frozen table", 2)
         end,
         __index = tbl,
     })
 end
 
+function M.pad_lines(lines)
+    local padded = {}
+
+    local pad_left = " "
+    local pad_right = " "
+
+    -- Vertical top padding
+    table.insert(padded, "")
+
+    for _, line in ipairs(lines) do
+        table.insert(padded, pad_left .. line .. pad_right)
+    end
+
+    -- Vertical bottom padding
+    table.insert(padded, "")
+
+    return padded
+end
+
 function M.create_floating_window(opts)
     opts = opts or {}
+
     local width = opts.width or math.floor(vim.o.columns * 0.8)
     local height = opts.height or math.floor(vim.o.lines * 0.8)
 
@@ -209,7 +215,57 @@ function M.get_current_mode_color()
     elseif mode == "c" then
         return colors.yellow
     end
+
     return colors.text
+end
+
+M.disabled_patterns = {
+    filetypes = {
+        "help",
+        "qf",
+        "neo-tree",
+        "TelescopePrompt",
+        "fugitive",
+        "Lazy",
+        "NvimTree",
+        "aerial",
+        "man",
+        "dap-repl",
+        "dapui_scopes",
+        "dapui_breakpoints",
+        "dapui_stacks",
+        "dapui_watches",
+        "dapui_console",
+    },
+    buftypes = { "terminal" },
+    bufnames = {},
+}
+
+function M.should_exclude_buffer()
+    local buf = vim.api.nvim_get_current_buf()
+    local filetype = vim.bo[buf].filetype
+    local buftype = vim.bo[buf].buftype
+    local bufname = vim.api.nvim_buf_get_name(buf)
+
+    for _, ft in ipairs(M.disabled_patterns.filetypes) do
+        if filetype == ft then
+            return true
+        end
+    end
+
+    for _, bt in ipairs(M.disabled_patterns.buftypes) do
+        if buftype == bt then
+            return true
+        end
+    end
+
+    for _, pattern in ipairs(M.disabled_patterns.bufnames) do
+        if bufname:match(pattern) then
+            return true
+        end
+    end
+
+    return false
 end
 
 return M

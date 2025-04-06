@@ -1,4 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
+local utils = require("utils")
 
 -- Set colorscheme
 autocmd("VimEnter", {
@@ -107,12 +108,20 @@ autocmd("BufEnter", {
 -- Toggle relativenumber
 autocmd({ "CmdlineEnter" }, {
     callback = function()
+        if utils.should_exclude_buffer() then
+            return
+        end
+
         vim.opt.relativenumber = false
         vim.cmd.redraw()
     end,
 })
 autocmd({ "CmdlineLeave" }, {
     callback = function()
+        if utils.should_exclude_buffer() then
+            return
+        end
+
         vim.opt.relativenumber = true
         vim.cmd.redraw()
     end,

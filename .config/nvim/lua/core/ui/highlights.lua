@@ -1,7 +1,6 @@
 local M = {}
 
 local colors = require("utils.assets").colors
-local bg = vim.g.CONFIG.transparency and colors.transparent or colors.mantle
 
 local function define_highlights(highlights)
     for name, opts in pairs(highlights) do
@@ -10,7 +9,9 @@ local function define_highlights(highlights)
 end
 
 local neovim = {
-    FloatBorder = { bg = bg, fg = bg },
+    FloatBorder = { bg = colors.bg, fg = colors.bg },
+    FloatTerm = { bg = colors.base },
+    FloatTermBorder = { bg = colors.crust, fg = colors.crust },
     DiagnosticError = {
         bg = colors.transparent,
         fg = colors.red,
