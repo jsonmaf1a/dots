@@ -7,7 +7,7 @@ return {
             javascript = { "biome" },
             javascriptreact = { "biome" },
             css = { "biome" },
-            html = { "prettierd", "prettier" },
+            html = { "biome" }, --  "prettierd", "prettier"
             json = { "biome" },
             lua = { "stylua" },
             graphql = { "prettier", "prettierd" },

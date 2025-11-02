@@ -15,13 +15,13 @@
 }
 
 window#waybar {
-    background: @background;
-    border-radius: 0px;
+  background: alpha(@background, 0.9);
+  /* background: transparent; */
+  border-radius: 0px;
 }
 
 #tray menu,
 tooltip {
-  background: @background;
   color: @primary;
   padding: 15px;
 }
@@ -35,7 +35,7 @@ tooltip label {
 .modules-left {
   background: transparent;
   color: @primary;
-  padding: 2px 15px 2px 15px;
+  padding: 0px 15px 0px 15px;
 }
 
 #workspaces {
@@ -45,9 +45,7 @@ tooltip label {
 #workspaces button {
   background: transparent;
   color: alpha(@primary, 0.5);
-  transition:
-    all 100ms ease,
-    color 0s;
+  transition: all 100ms ease, color 0s;
   letter-spacing: -7px;
 }
 
@@ -67,13 +65,13 @@ tooltip label {
 }
 
 #tray {
-  /* margin-right: 10px; */
+  margin-right: 15px;
 }
 
 #info {
-  background: @background;
+  background: transparent;
   border-radius: 10px 0px 0px 10px;
-  margin-right: 5px;
+  margin-right: 15px;
 }
 
 #clock,

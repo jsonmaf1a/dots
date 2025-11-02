@@ -7,10 +7,6 @@ local servers = {
         filetypes = { "html", "typescriptreact", "javascriptreact", "svelte" },
         cmd = { "emmet-language-server", "--stdio" },
     },
-    go = {
-        filetypes = { "go" },
-        cmd = { "gopls" },
-    },
 }
 
 for server, opts in pairs(servers) do

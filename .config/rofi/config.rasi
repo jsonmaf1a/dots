@@ -22,9 +22,9 @@ configuration {
 window {
   width: 25%;
   background-color: @bg;
-  border-radius: 10px;
-  border-color: @accent;
-  border: 2px;
+  // border-radius: 10px;
+  border-color: #4b4b57;
+  border: 1px;
   padding: 0 0 10 0;
 }
 

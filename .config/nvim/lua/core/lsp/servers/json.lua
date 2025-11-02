@@ -1,6 +1,6 @@
 vim.lsp.config.json = {
     cmd = { "vscode-json-language-server", "--stdio" },
-    init_options = { provideFormatter = true },
+    init_options = { provideFormatter = false },
     filetypes = { "json", "jsonc" },
     settings = {
         json = {

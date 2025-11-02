@@ -30,7 +30,7 @@
     "tooltip": false
   },
   "hyprland/window": {
-    "format": "{}",
+    "format": " {}",
     "separate-outputs": true
   },
   "battery": {
@@ -105,11 +105,6 @@
       "custom/reboot"
     ]
   },
-  "custom/power": {
-    "format": " ",
-    "tooltip": false,
-    "on-click": "rofi -show power-menu -modi power-menu:~/.config/hypr/scripts/rofi-power-menu"
-  },
   "group/info": {
     "orientation": "horizontal",
     "modules": [
@@ -133,5 +128,18 @@
       "󰪤",
       "󰪥"
     ]
+  },
+  "mpris": {
+    "format": "{artist} - {title} [{position} / {length}]",
+    "format-paused": "",
+    "player-icons": {
+      "default": "▶",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "interval": 1,
+      // "ignored-players": ["firefox"]
   }
 }

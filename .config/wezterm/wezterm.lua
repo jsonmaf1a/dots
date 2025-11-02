@@ -8,15 +8,14 @@ local config = wezterm.config_builder()
 local function get_theme(appearance)
 	if appearance:find("Dark") then
 		return {
-			-- theme = "OneDark (base16)",
-			theme = "Catppuccin Mocha",
-			-- theme = "tokyonight_night",
-			cursor = "Bibata-Modern-Classic",
+			-- theme = "Catppuccin Mocha",
+			theme = "Tokyo Night",
+			cursor = "BreezeX-Black",
 		}
 	else
 		return {
 			theme = "Catppuccin Latte",
-			cursor = "Bibata-Modern-Ice",
+			cursor = "BreezeX-Light",
 		}
 	end
 end
@@ -39,7 +38,7 @@ config.enable_wayland = true
 config.hide_tab_bar_if_only_one_tab = false
 config.show_new_tab_button_in_tab_bar = false
 config.window_close_confirmation = "NeverPrompt"
-config.window_background_opacity = 1
+config.window_background_opacity = 0.8
 config.enable_tab_bar = true
 config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = false

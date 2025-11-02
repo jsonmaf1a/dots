@@ -1,6 +1,8 @@
 local utils = require("utils")
 local colors = require("utils.assets").colors
 
+local bg = vim.g.CONFIG.transparency and "#4C4F69" or colors.bg
+
 local conditions = {
     buffer_not_empty = function()
         return vim.fn.empty(vim.fn.expand("%:t")) ~= 1
@@ -10,14 +12,14 @@ local conditions = {
 local components = {
     mode = {
         "mode",
-        color = { bg = colors.bg, fg = colors.text },
+        color = { bg = bg, fg = colors.text },
     },
     mode_prefix = {
         function()
             local color = utils.get_current_mode_color()
 
             local hl = "LualineModePrefix"
-            vim.api.nvim_set_hl(0, hl, { fg = color, bg = colors.bg })
+            vim.api.nvim_set_hl(0, hl, { fg = color, bg = bg })
 
             return utils.hl_str(hl, "▊")
         end,
@@ -60,34 +62,43 @@ local components = {
             local i = math.floor((cur_line - 1) / lines * #chars) + 1
             return string.rep(chars[i], 2)
         end,
-        color = { bg = colors.bg, fg = colors.lavender },
+        color = { bg = bg, fg = colors.lavender },
         padding = { left = 0, right = 0 },
     },
     filepath = {
         function()
             local name = vim.fn.expand("%:t")
-            local icon, color = require("nvim-web-devicons").get_icon_color(
-                vim.fn.expand("%:t"),
-                vim.fn.fnamemodify(vim.fn.expand("%"), ":e"),
-                { default = true }
-            )
+            local icon, icon_color =
+                require("nvim-web-devicons").get_icon_color(
+                    vim.fn.expand("%:t"),
+                    vim.fn.fnamemodify(vim.fn.expand("%"), ":e"),
+                    { default = true }
+                )
 
-            local hl = "LualineFileIcon_" .. color:gsub("#", "")
-            vim.api.nvim_set_hl(0, hl, { fg = color, bg = colors.bg })
+            local icon_hl = "LualineFileIcon_" .. icon_color:gsub("#", "")
+            vim.api.nvim_set_hl(0, icon_hl, { fg = icon_color, bg = bg })
 
-            return utils.hl_str(hl, icon)
-                .. " "
-                .. utils.get_cwd()
+            local TRUNCATION_LEN = 40
+            local path_text = utils.get_cwd()
                 .. "/"
-                .. utils.truncate(name, 40)
+                .. utils.truncate(name, TRUNCATION_LEN)
+
+            local text_hl = "LualineFileText_" .. colors.text:gsub("#", "")
+            vim.api.nvim_set_hl(0, text_hl, { fg = colors.text, bg = bg })
+
+            return table.concat({
+                utils.hl_str(icon_hl, icon), -- reset HL to default
+                utils.hl_str(text_hl, " " .. path_text),
+            })
         end,
         cond = conditions.buffer_not_empty,
         padding = { left = 1, right = 1 },
+        color = { bg = bg },
     },
     branch = {
         "branch",
         icon = "",
-        color = { bg = colors.bg, fg = colors.lavender },
+        color = { bg = bg, fg = colors.lavender },
         padding = { left = 1, right = 1 },
     },
     diff = {
@@ -98,7 +109,7 @@ local components = {
             modified = { fg = colors.mauve },
             removed = { fg = colors.red },
         },
-        color = { bg = colors.bg },
+        color = { bg = bg },
     },
 }
 
@@ -109,12 +120,12 @@ local config = {
         section_separators = { left = "", right = "" },
         theme = {
             normal = {
-                a = { bg = colors.bg, fg = colors.text },
-                b = { bg = colors.bg, fg = colors.text },
-                c = { bg = colors.bg, fg = colors.text },
-                x = { bg = colors.bg, fg = colors.text },
-                y = { bg = colors.bg, fg = colors.text },
-                z = { bg = colors.bg, fg = colors.text },
+                a = { bg = bg, fg = colors.text },
+                b = { bg = bg, fg = colors.text },
+                c = { bg = bg, fg = colors.text },
+                x = { bg = bg, fg = colors.text },
+                y = { bg = bg, fg = colors.text },
+                z = { bg = bg, fg = colors.text },
             },
         },
         disabled_filetypes = utils.disabled_patterns.filetypes,

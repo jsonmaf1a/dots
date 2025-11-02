@@ -2,17 +2,17 @@
 name = "main"
 
 [theme.low]
-background = "#121218"
+background = "#12121890"
 foreground = "#ABB2BF"
-border = "#1A1B26"
+border = "#4b4b57"
 
 [theme.normal]
-background = "#121218"
+background = "#12121890"
 foreground = "#ABB2BF"
-border = "#1A1B26"
+border = "#676778"
 
 [theme.critical]
-background = "#121218"
-foreground = "#E06B74"
-border = "#1A1B26"
+background = "#12121890"
+foreground = "#ABB2BF"
+border = "#E06B74"
 

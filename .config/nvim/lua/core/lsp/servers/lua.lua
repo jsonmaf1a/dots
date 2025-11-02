@@ -9,8 +9,10 @@ vim.lsp.config.lua = {
             },
             completion = {
                 callSnippet = "Both",
+                autoRequire = false,
             },
             diagnostics = {
+                unusedLocalExclude = { "_*" },
                 globals = { "vim" },
             },
             workspace = {

@@ -2,9 +2,8 @@ vim.lsp.config.clangd = {
     cmd = {
         "clangd",
         "--completion-style=detailed",
-        "--background-index=false",
+        -- "--background-index=false",
         "--clang-tidy",
-        "--query-driver=/usr/bin/g++",
     },
     filetypes = {
         "c",
@@ -22,6 +21,7 @@ vim.lsp.config.clangd = {
     },
     root_markers = {
         ".clang-format",
+        ".clangd",
         ".git",
         "compile_commands.json",
         "CMakeLists.txt",

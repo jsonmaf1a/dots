@@ -56,9 +56,9 @@ $env.LANG = "en_US.UTF-8"
 # Wayland
 $env.QT_QPA_PLATFORM = "wayland"
 
-
 path add /usr/local/go/bin
 path add ($env.HOME | path join ".cargo" "bin")
+path add ($env.HOME | path join ".local" "share" "bin")
 path add ($env.HOME | path join "pyvenv" "bin")
 path add ($env.HOME | path join "go" "bin")
 path add ($env.DOTNET_ROOT)
@@ -68,11 +68,12 @@ path add $env.PNPM_HOME
 path add ($env.BUN_INSTALL | path join "bin")
 path add ($env.HOME | path join ".ghcup" "bin")
 path add ($env.HOME | path join ".local" "bin")
+path add ($env.HOME | path join ".nimble" "bin")
 
 source ./fnm.nu
 
 zoxide init nushell | save -f ~/.cache/zoxide.nu
 starship init nu | save -f ~/.cache/starship.nu
-carapace _carapace nushell | save --force ~/.cache/carapace.nu
+# carapace _carapace nushell | save --force ~/.cache/carapace.nu
 
 afetch

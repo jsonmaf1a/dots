@@ -1,7 +1,6 @@
 #!/bin/bash
 sleep 1
 killall -e xdg-desktop-portal-hyprland
-killall -e xdg-desktop-portal-wlr
 killall xdg-desktop-portal
 touch ~/.cache/xdgh.log
 /usr/lib/xdg-desktop-portal-hyprland --verbose >> ~/.cache/xdgh.log &

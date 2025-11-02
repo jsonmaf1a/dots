@@ -1,5 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local utils = require("utils")
+local features = require("core.features")
 
 -- Set colorscheme
 autocmd("VimEnter", {
@@ -86,10 +87,12 @@ autocmd(
 )
 
 -- Enable text wrap for certain file types
-autocmd(
-    { "BufRead", "BufNewFile" },
-    { pattern = { "*.txt", "*.md", "*.tex" }, command = "set wrap" }
-)
+autocmd({ "FileType" }, {
+    pattern = { "text", "markdown", "tex" },
+    callback = function()
+        vim.opt_local.wrap = true
+    end,
+})
 
 -- Get icon based on filetype for lualine 'filename' module
 autocmd("BufEnter", {
@@ -149,5 +152,13 @@ autocmd("LspNotify", {
         if args.data.method == "textDocument/didOpen" then
             vim.lsp.foldclose("imports", vim.fn.bufwinid(args.buf))
         end
+    end,
+})
+
+-- Open corresponding source/header file
+autocmd("BufReadPost", {
+    pattern = { "*.c", "*.cpp", "*.cc", "*.h", "*.hpp" },
+    callback = function()
+        vim.defer_fn(features.clangd.open_paired_file, 50)
     end,
 })

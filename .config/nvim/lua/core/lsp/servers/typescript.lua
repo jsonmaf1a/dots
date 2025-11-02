@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 vim.lsp.config.biome = {
     filetypes = {
         "astro",
@@ -14,7 +16,22 @@ vim.lsp.config.biome = {
         "vue",
     },
     cmd = { "biome", "lsp-proxy" },
-    root_markers = { "biome.json", "biome.jsonc" },
+    -- root_markers = { "biome.json", "biome.jsonc" },
+    root_dir = function(fname)
+        -- Ensure fname is a path, not a buffer number
+        if type(fname) == "number" then
+            fname = vim.api.nvim_buf_get_name(fname)
+        end
+
+        local root_files = { "biome.json", "biome.jsonc" }
+        root_files = utils.insert_package_json(root_files, "biome", fname)
+
+        local found =
+            vim.fs.find(root_files, { path = fname, upward = true })[1]
+        if found then
+            return vim.fs.dirname(found)
+        end
+    end,
 }
 vim.lsp.enable("biome")
 
@@ -123,7 +140,8 @@ if ok then
             expose_as_code_action = "all",
             include_completions_with_insert_text = true,
             complete_function_calls = false,
-            code_lens = "all",
+            code_lens = "off",
+            disable_member_code_lens = true,
             jsx_close_tag = {
                 enable = false,
                 filetypes = { "javascriptreact", "typescriptreact" },

@@ -84,37 +84,47 @@ set_keymap("n", "<leader>cd", picker.lsp_definitions, "Definitions")
 set_keymap("n", "<leader>ct", picker.lsp_type_definitions, "Type definitions")
 set_keymap("n", "<leader>cx", picker.diagnostics_buffer, "Buffer diagnostics")
 set_keymap("n", "<leader>cX", picker.diagnostics, "Diagnostics")
+set_keymap(
+    "n",
+    "<leader>ch",
+    "<cmd>LspClangdSwitchSourceHeader<CR>",
+    "[clangd] Switch between header and source"
+)
+
+set_keymap("n", "<Leader>cI", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, "Toggle inlay hints")
 
 set_keymap(
     "n",
     "<leader>cR",
     "<cmd>TSToolsFileReferences<CR>",
-    "File references"
+    "[tstools] File references"
 )
 set_keymap(
     "n",
     "<leader>co",
     "<cmd>TSToolsOrganizeImports<CR>",
-    "Organize imports"
+    "[tstools] Organize imports"
 )
 set_keymap(
     "n",
     "<leader>cu",
     "<cmd>TSToolsRemoveUnusedImports<CR>",
-    "Remove unused imports"
+    "[tstools] Remove unused imports"
 )
 set_keymap(
     "n",
     "<leader>cm",
     "<cmd>TSToolsAddMissingImports<CR>",
-    "Add missing imports"
+    "[tstools] Add missing imports"
 )
 
 -- Picker
 set_keymap("n", "<leader><Space>", picker.resume, "Resume last search")
-set_keymap("n", "<leader>F", picker.smart, "Smart find files")
+set_keymap("n", "<leader>F", picker.grep, "Smart find files")
 set_keymap("n", "<leader>,", picker.buffers, "Buffers")
-set_keymap("n", "<leader>f/", picker.grep, "Live grep")
+set_keymap("n", "<leader>f/", picker.smart, "Live grep")
 set_keymap("n", "<leader>fb", picker.buffers, "Buffers")
 set_keymap("n", "<leader>fg", picker.grep_buffers, "Live grep buffers")
 set_keymap("n", "<leader>ff", picker.files, "Find files")
@@ -129,6 +139,7 @@ set_keymap("n", "<leader>fH", picker.search_history, "Resume last search")
 set_keymap("n", "<leader>fs", picker.spelling, "Spell suggestions")
 set_keymap("n", "<leader>fu", picker.undo, "Undo")
 set_keymap("n", "<leader>fz", picker.zoxide, "Zoxide")
+set_keymap("n", "<leader>a", picker.lsp_symbols, "Zoxide")
 
 -- Git
 set_keymap("n", "<leader>gb", picker.git_branches, "Git branches")
@@ -153,15 +164,15 @@ set_keymap("n", "<leader>xd", function()
     trouble.toggle("document_diagnostics")
 end, "Document diagnostics")
 
-set_keymap("n", "<leader>xd", function()
+set_keymap("n", "<leader>xq", function()
     trouble.toggle("quickfix")
 end, "Quick fix")
 
-set_keymap("n", "<leader>xd", function()
+set_keymap("n", "<leader>xl", function()
     trouble.toggle("loclist")
 end, "Location list")
 
-set_keymap("n", "<leader>a", function()
+set_keymap("n", "<leader>xa", function()
     trouble.toggle("symbols")
 end, "LSP Symbols")
 

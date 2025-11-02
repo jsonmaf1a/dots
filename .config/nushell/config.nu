@@ -60,7 +60,7 @@ $env.config = {
 source ./binds.nu
 
 source ~/.cache/zoxide.nu
-source ~/.cache/carapace.nu
+# source ~/.cache/carapace.nu
 
 source ./aliases.nu
 

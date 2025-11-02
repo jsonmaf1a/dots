@@ -21,9 +21,9 @@ send_notification() {
     local urgency=${3:-$URGENCY}
 
     if [[ $ID ]]; then
-        noti send -a "$APP_NAME" -u "$urgency" -i "$icon" -r "$ID" "$message"
+        noti send -a "$APP_NAME" -u "$urgency" -I "$icon" -r "$ID" "$message"
     else
-        noti send -a "$APP_NAME" -u "$urgency" -i "$icon" "$message" --print-id > "$ID_TMPFILE"
+        noti send -a "$APP_NAME" -u "$urgency" -I "$icon" "$message" --print-id > "$ID_TMPFILE"
     fi
 }
 

@@ -6,8 +6,8 @@ use = [
 [general]
 font = "JetBrainsMono Nerd Font"
 anchor = "top right"
-offset = [10, 15]
-width = 300
+offset = [15, 15]
+width = 330
 height = 80
 gap = 8
 limit = 10
@@ -24,33 +24,30 @@ theme = "main"
 # layout = "./layouts/layout.noti"
 
 [display.icons]
-theme = "Breeze-dark"
+theme = "Breeze"
 
 [display.timeout]
 default = 5000
 critical = 0
 
 [display.image]
-max_size = 38
+max_size = 32
 margin = { right = 15 }
 rounding = 0
 
 [display.border]
-size = 2
-radius = 12
+size = 1
+radius = 0
 
 [display.text]
+font_size = 14
 alignment = "left"
-justify = false
-margin = 0
-font_size = 16
+justify = true
 ellipsize = "end"
+wrap = false
 
 [display.summary]
 style = "bold"
-wrap = false
 
 [display.body]
-font_size = 15
-wrap = true
-wrap_mode = "word-char"
+font_size = 12

@@ -11,10 +11,10 @@ ID=$(<$ID_TMPFILE)
 send_notification() {
     local value=$1
 
-    if [[ $ID ]]; then 
-        noti send -a "brightness" -u low -i $ICONS/brightness.svg -r $ID "Brightness: $value%"
+    if [[ $ID ]]; then
+        noti send -a "brightness" -u low -I $ICONS/brightness.svg -r $ID "Brightness: $value%"
     else
-        noti send -a "brightness" -u low -i $ICONS/brightness.svg "Brightness: $value%" --print-id > $ID_TMPFILE
+        noti send -a "brightness" -u low -I $ICONS/brightness.svg "Brightness: $value%" --print-id > $ID_TMPFILE
     fi
 }
 

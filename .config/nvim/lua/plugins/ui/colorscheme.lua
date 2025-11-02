@@ -13,7 +13,7 @@ return {
             transparent_background = vim.g.CONFIG.transparency,
             default_integrations = true,
             dim_inactive = {
-                enabled = true,
+                enabled = false,
                 shade = "dark",
                 percentage = 0.15,
             },

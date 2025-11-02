@@ -1,15 +1,15 @@
 vim.g.CONFIG = {
     showmode = false,
     enable_mouse = true,
-    transparency = false,
+    transparency = true,
     global_statusline = true,
     virtual_text = true,
     relative_number = false,
     indent = 4,
-    hide_cmdline = false,
-    border = "rounded",
+    hide_cmdline = true,
+    border = "single",
     colorscheme = {
-        dark = "catppuccin-mocha",
+        dark = "tokyonight-night",
         light = "catppuccin-latte",
     },
 }

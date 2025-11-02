@@ -2,17 +2,19 @@
 name = "main-spotify"
 
 [theme.low]
-background = "#12121899"
+background = "#12121890"
 foreground = "#ABB2BF"
 [theme.low.border]
 mode = "linear-gradient"
-degree = 49
-colors = ["#ABB2BF", "#1ED760", "#ABB2BF"]
+degree = 180
+colors = ["#1ED760", "#ABB2BF"]
 
 [[app]]
 name = "Spotify"
 [app.display]
 theme = "main-spotify"
-padding = { horizontal = 14 }
-image = { rounding = 5, max_size = 56 }
-border = {size = 3}
+padding = { horizontal = 10 }
+image = { rounding = 1, max_size = 64 }
+
+# [app.display.text]
+# font = "BigBlueTermPlus Nerd Font"

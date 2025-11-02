@@ -19,7 +19,7 @@ sorting = "urgency"
 markup = true
 padding = [5, 10]
 theme = "main"
-# layout = "./layout.noti"
+layout = "./layout.noti"
 
 [display.icons]
 theme = "Breeze-dark"
