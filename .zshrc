@@ -1,30 +1,51 @@
-# OMZ
-ZSH_THEME="minimal"
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-completions)
+source ~/.antidote/antidote.zsh
+antidote load
 
-# SOURCES
-source $ZSH/oh-my-zsh.sh
-source $ZSH/custom/kb.zsh
-source $ZSH/custom/vim.zsh
+autoload -Uz compinit
+compinit -C
+
 source <(fzf --zsh)
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
-# ALIASES
-alias p='sudo pacman -S'                            # install
-alias pu='sudo pacman -Syu'                         # update
-alias pr='sudo pacman -Rs'                          # remove
-alias psearch='sudo pacman -Ss'                     # search
-alias pinfo='sudo pacman -Si'                       # info
-alias pclean='sudo pacman -Scc'                     # list orphans
-alias plistf='sudo pacman -Ql'                      # clean cache
-alias porph='sudo pacman -Qdt'                      # list files
-alias prorph='sudo pacman -Rns $(pacman -Qtdq)'     # remove orphans
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=10000
+SAVEHIST=10000
 
-alias pa='paru -S'                                  # install
-alias pau='paru -Sua'                               # update
-alias par='paru -Rs'                                # remove
-alias painfo='paru -Si'                             # info
-alias pasearch='paru -Ss'                           # search
-alias paclean='paru -Scc'                           # clean cache
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+
+setopt INTERACTIVE_COMMENTS
+setopt AUTO_CD
+setopt COMPLETE_IN_WORD
+setopt ALWAYS_TO_END
+setopt CORRECT
+
+bindkey -v
+bindkey '^R' fzf-history-widget
+bindkey '^ ' autosuggest-accept
+
+# ---------- ALIASES ----------
+alias p='sudo pacman -S'
+alias pu='sudo pacman -Syu'
+alias pr='sudo pacman -Rs'
+alias psearch='sudo pacman -Ss'
+alias pinfo='sudo pacman -Si'
+alias pclean='sudo pacman -Scc'
+alias plistf='sudo pacman -Ql'
+alias porph='sudo pacman -Qdt'
+alias prorph='sudo pacman -Rns $(pacman -Qtdq)'
+
+alias pa='paru -S'
+alias pau='paru -Sua'
+alias par='paru -Rs'
+alias painfo='paru -Si'
+alias pasearch='paru -Ss'
+alias paclean='paru -Scc'
 
 alias pnpx='pnpm dlx'
 alias pnpi='pnpm add'
@@ -33,11 +54,14 @@ alias pnpg='pnpm add -g'
 
 alias cd='z'
 alias ls='eza'
+alias l='eza -la'
 alias hx='helix'
 alias v='nvim'
 alias vv='nvim .'
 alias cb='wl-copy'
-alias rm='trash -v'
+alias rm='rm -iv'
+alias md='mkdir'
+alias trash='trash -v'
 alias pp='ping 8.8.8.8'
 alias mpvp="mpvpaper '*'"
 alias pick="hyprpicker -a -f "
@@ -50,18 +74,22 @@ alias ":qa"='exit'
 alias ":qa!"='exit'
 alias ":wqa"='exit'
 
-alias nvchad='NVIM_APPNAME="nvchad" nvim'
-alias astronvim='NVIM_APPNAME="astronvim" nvim'
-alias nvim10='NVIM_APPNAME="nvim10" ~/.local/neovim-0.10.4/usr/bin/nvim'
+function yy() {
+  local tmp="$(mktemp -t yazi-cwd.XXXXXX)"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ]; then
+    cd "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 
-alias xgnome='XINITRC="~/xsessions/gnome" startx'
-alias xplasma='XINITRC="~/xsessions/plasma" startx'
-alias wlplasma='/usr/lib/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland'
+function cdi() {
+  local dir
+  dir=$(zoxide query -i) || return
+  cd "$dir"
+}
 
-# EXEC
-setopt appendhistory
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-bindkey '^ ' autosuggest-accept # Autocomplete on CTRL + SPACE
-fastfetch
-# afetch
+# ---------- STARTUP ----------
+if [[ -o interactive ]]; then
+  fastfetch
+fi

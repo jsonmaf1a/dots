@@ -1,7 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        -- branch = "main",
+        branch = "main",
         event = { "BufReadPre", "BufNewFile" },
         build = ":TSUpdate",
         dependencies = {
@@ -11,88 +11,57 @@ return {
             "nushell/tree-sitter-nu",
         },
         config = function()
-            local treesitter = require("nvim-treesitter.configs")
-            local parser_config =
-                require("nvim-treesitter.parsers").get_parser_configs()
+            -- New API: no more require("nvim-treesitter.configs").setup()
+            -- highlight, indent, etc. are enabled via vim.g or direct module calls
+            require("nvim-treesitter").setup()
 
-            treesitter.setup({
-                highlight = {
-                    enable = true,
-                },
-                incremental_selection = {
-                    enable = true,
-                    keymaps = {
-                        init_selection = "vv",
-                        node_incremental = "vv",
-                        scope_incremental = false,
-                        node_decremental = "<bs>",
-                    },
-                },
-                indent = { enable = true },
-                textobjects = {
-                    enable = true,
-                },
+            -- Ensure parsers are installed
+            local ensure_installed = {
+                "json", "javascript", "typescript", "tsx",
+                "yaml", "toml", "html", "css", "prisma",
+                "markdown", "markdown_inline", "svelte",
+                "graphql", "bash", "lua", "vim", "dockerfile",
+                "gitignore", "c", "go", "rust", "cpp", "nu",
+            }
+            require("nvim-treesitter").install(ensure_installed)
 
-                ensure_installed = {
-                    "json",
-                    "javascript",
-                    "typescript",
-                    "tsx",
-                    "yaml",
-                    "toml",
-                    "html",
-                    "css",
-                    "prisma",
-                    "markdown",
-                    "markdown_inline",
-                    "svelte",
-                    "graphql",
-                    "bash",
-                    "lua",
-                    "vim",
-                    "dockerfile",
-                    "gitignore",
-                    "c",
-                    "go",
-                    "rust",
-                    "cpp",
-                    "nu",
-                },
+            -- Highlight (on by default in new API, but explicit is fine)
+            vim.api.nvim_create_autocmd("FileType", {
+                callback = function(ev)
+                    pcall(vim.treesitter.start, ev.buf)
+                end,
             })
 
-            parser_config.hurl = {
-                install_info = {
-                    url = "~/git/github.com/kjuulh/tree-sitter-hurl",
-                    files = { "src/parser.c" },
-                    branch = "main",
-                    generate_requires_npm = false,
-                    requires_generate_from_grammar = false,
-                },
-                filetype = "hurl",
-            }
+            -- Incremental selection keymaps
+            vim.keymap.set("n", "vv", function()
+                require("nvim-treesitter.incremental_selection").init_selection()
+            end, { desc = "TS init selection" })
 
-            require("ts_context_commentstring").setup({})
-
+            -- Filetypes
             vim.filetype.add({
                 extension = {
                     hurl = "hurl",
+                },
+                pattern = {
                     [".*/hypr/.*%.conf"] = "hyprlang",
                 },
             })
 
+            -- ts_context_commentstring
+            require("ts_context_commentstring").setup({})
+
+            -- treesitter-context
             require("treesitter-context").setup({
-                enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-                multiwindow = false, -- Enable multiwindow support.
-                max_lines = 5, -- How many lines the window should span. Values <= 0 mean no limit.
-                min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
+                enable = true,
+                multiwindow = false,
+                max_lines = 5,
+                min_window_height = 0,
                 line_numbers = true,
-                multiline_threshold = 20, -- Maximum number of lines to show for a single context
-                trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
-                mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
-                -- Separator between context and content. Should be a single character string, like '-'.
-                -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
+                multiline_threshold = 20,
+                trim_scope = "outer",
+                mode = "cursor",
                 separator = "",
-                zindex = 20, -- The Z-index of the context window
+                zindex = 20,
             })
         end,
     },

@@ -9,7 +9,7 @@ configuration {
   font: "JetBrainsMono Nerd Font 10";
   modi: "window,run,drun";
   show-icons: true;
-  icon-theme: "Fluent";
+  // icon-theme: "Fluent";
 }
 
 * {
@@ -23,9 +23,11 @@ window {
   width: 25%;
   background-color: @bg;
   // border-radius: 10px;
-  border-color: #4b4b57;
-  border: 1px;
+  // border-color: #4b4b57;
+  border-color: #28283F;
+  border: 4px;
   padding: 0 0 10 0;
+  border-radius: 10px;
 }
 
 element {

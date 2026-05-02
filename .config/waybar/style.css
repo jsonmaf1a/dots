@@ -1,4 +1,4 @@
-@import "themes/tokyonight/dark.css";
+@import "themes/catppuccin-mocha/dark.css";
 
 * {
   padding: 0;
@@ -15,9 +15,12 @@
 }
 
 window#waybar {
-  background: alpha(@background, 0.9);
+  background: @background;
+
   /* background: transparent; */
-  border-radius: 0px;
+  border-radius: 0px 0px 10px 10px;
+  border: 4px solid alpha(#4b4b82, 0.1);
+  border-top: 0px;
 }
 
 #tray menu,
@@ -35,18 +38,18 @@ tooltip label {
 .modules-left {
   background: transparent;
   color: @primary;
-  padding: 0px 15px 0px 15px;
+  padding: 2px 17px 4px 17px;
 }
 
 #workspaces {
-  transition: all 300ms ease;
+  transition: all 100ms ease;
 }
 
 #workspaces button {
   background: transparent;
   color: alpha(@primary, 0.5);
   transition: all 100ms ease, color 0s;
-  letter-spacing: -7px;
+  /* letter-spacing: -7px; */
 }
 
 #workspaces button.active {

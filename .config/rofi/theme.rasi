@@ -1,2 +1,1 @@
-@import "./theme/onedark/dark.rasi"
-
+@import "./theme/catppuccin-mocha/dark.rasi"
