@@ -18,9 +18,10 @@ window#waybar {
   background: @background;
 
   /* background: transparent; */
-  border-radius: 0px 0px 10px 10px;
-  border: 4px solid alpha(#4b4b82, 0.1);
-  border-top: 0px;
+  /* border-radius: 0px 0px 10px 10px; */
+
+  /* border: 4px solid alpha(#4b4b82, 0.1); */
+  /* border-top: 0px; */
 }
 
 #tray menu,

@@ -54,7 +54,7 @@ alias pnpg='pnpm add -g'
 
 alias cd='z'
 alias ls='eza'
-alias l='eza -la'
+alias l='eza -lah'
 alias hx='helix'
 alias v='nvim'
 alias vv='nvim .'
@@ -68,7 +68,7 @@ alias pick="hyprpicker -a -f "
 alias sr='systemctl soft-reboot'
 alias gc='git clone --recursive'
 
-alias ":q"='exit'
+alias ':q'='exit'
 alias ":q!"='exit'
 alias ":qa"='exit'
 alias ":qa!"='exit'
@@ -89,7 +89,19 @@ function cdi() {
   cd "$dir"
 }
 
+function mdcd() {
+  md "$1" && cd "$1"
+}
+
 # ---------- STARTUP ----------
 if [[ -o interactive ]]; then
   fastfetch
 fi
+
+# pnpm
+export PNPM_HOME="/home/jsonmafia/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

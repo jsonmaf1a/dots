@@ -108,7 +108,7 @@
   "group/info": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/language",
+      "niri/language",
       "network",
       "battery"
     ]
@@ -141,5 +141,28 @@
     },
     "interval": 1,
       // "ignored-players": ["firefox"]
+  },
+
+  "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+          "active": "󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊󰑊",
+          "default": "󰑊"
+      }
+  },
+  "niri/window": {
+      "format": "{}",
+      "rewrite": {
+          "(.*) - Mozilla Firefox": "$1",
+          "(.*) — Zen Browser": "$1",
+          "(.*) - zsh": "> [$1]",
+          "": "Desktop"
+      }
+  },
+  "niri/language": {
+	"format": "{}",
+	"format-en": "EN",
+	"format-uk": "UA",
+	"format-ru": "RU"
   }
 }
