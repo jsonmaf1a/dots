@@ -1,0 +1,50 @@
+local config = require("nvim.config")
+
+require("catppuccin").setup({
+    flavor = "mocha",
+    background = {
+        light = "latte",
+        dark = "mocha",
+    },
+    transparent_background = config.transparency,
+    default_integrations = true,
+    dim_inactive = {
+        enabled = false,
+        shade = "dark",
+        percentage = 0.15,
+    },
+    integrations = {
+        cmp = true,
+        gitsigns = true,
+        treesitter = true,
+        fidget = true,
+        neotree = true,
+        ufo = true,
+        lsp_trouble = true,
+        which_key = true,
+        dap = true,
+        dap_ui = true,
+        illuminate = {
+            enabled = true,
+            lsp = true,
+        },
+        native_lsp = {
+            enabled = true,
+            virtual_text = {
+                errors = { "italic" },
+                hints = { "italic" },
+                warnings = { "italic" },
+                information = { "italic" },
+            },
+            underlines = {
+                errors = { "undercurl" },
+                hints = { "undercurl" },
+                warnings = { "undercurl" },
+                information = { "undercurl" },
+            },
+            inlay_hints = {
+                background = true,
+            },
+        }
+    }
+})

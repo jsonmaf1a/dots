@@ -1,0 +1,7 @@
+require("nvim.options")
+require("nvim.autocmds")
+require("nvim.plugins")
+require("nvim.keymaps")
+require("nvim.lsp")
+require("nvim.diagnostics")
+require("nvim.statusline")
